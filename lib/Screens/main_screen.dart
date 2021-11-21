@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:final_project/accessories/circular_background.dart';
+import 'package:final_project/accessories/logout_button.dart';
 import 'package:final_project/accessories/text_field.dart';
 import 'package:final_project/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -12,10 +15,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  // ignore: unused_field
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // ignore: prefer_const_constructors
     return Scaffold(
       backgroundColor: Colors.white.withOpacity(0.95),
       body: SafeArea(
@@ -34,8 +39,10 @@ class _MainScreenState extends State<MainScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 15),
                       child: CircleBackground(
-                        widget: const CircleAvatar(
-                          backgroundImage: null,
+                        onPressed: () {},
+                        widget: Icon(
+                          Icons.person,
+                          color: Color(0xFFCE6730),
                         ),
                         height1: 50,
                         height2: 40,
@@ -46,7 +53,6 @@ class _MainScreenState extends State<MainScreen> {
                     SizedBox(
                       width: size.width / 20,
                     ),
-                    // ignore: prefer_const_constructors
                     Text(
                       "Hii, Tushar!",
                       style: kMainScreenText,
@@ -54,43 +60,40 @@ class _MainScreenState extends State<MainScreen> {
                   ],
                 ),
                 Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: CircleBackground(
-                      widget:GestureDetector(
-                         onTap: (){
-
-                         },
-                         child: const Icon(Icons.notifications_outlined,
-                        color: Color(0xFFCE6730),),
-                       ),
+                  padding: const EdgeInsets.only(right: 15),
+                  child: LogOutBackground(
+                    auth: _auth,
+                    widget: Icon(
+                      Icons.settings_outlined,
+                      color: Color(0xFFCE6730),
+                    ),
                     height1: 50,
                     height2: 40,
                     width1: 50,
                     width2: 40,
-                    ),
-                    ),
+                  ),
+                ),
               ],
             ),
             const SizedBox(
               height: 40,
             ),
             Padding(
-              padding: const EdgeInsets.only(left:25.0),
-              child: RichText(
+                padding: const EdgeInsets.only(left: 25.0),
+                child: RichText(
                   text: TextSpan(
                     text: "What's next \non your",
                     style: kMainScreenDarkText,
-                    children:  const <TextSpan>[
+                    children: const <TextSpan>[
                       TextSpan(
                           text: " wishlist",
-                          style: TextStyle(color: Color(0xFFCE6730))
-                          ),
+                          style: TextStyle(color: Color(0xFFCE6730))),
                       TextSpan(
-                          text: " ?",),
+                        text: " ?",
+                      ),
                     ],
                   ),
-                )
-            ),
+                )),
             const SizedBox(
               height: 30,
             ),

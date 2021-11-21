@@ -58,11 +58,7 @@ final Color secondaryColor = Color(0xFF4B131E).withOpacity(0.5);
 final Icon googleIcon = Icon(Icons.verified_user);
 
 final TextStyle kMainScreenText = GoogleFonts.belgrano(
-  color: Colors.black,
-  fontSize: 15,
-  fontWeight: FontWeight.w500
-);
-
+    color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500);
 
 final TextStyle kMainScreenDarkText = GoogleFonts.belgrano(
   color: Colors.black,
@@ -71,7 +67,21 @@ final TextStyle kMainScreenDarkText = GoogleFonts.belgrano(
 );
 
 final TextStyle kMainTextField = GoogleFonts.belgrano(
-  color: Colors.black,
-  fontSize: 18,
-  fontWeight: FontWeight.bold
+    color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold);
+
+const Color kbackGroundColor = Color(0xFFCE6730);
+
+enum buttonType {
+  simpleText,
+  passwordText,
+}
+
+final TextStyle welcomeText = GoogleFonts.pacifico(
+  fontSize: 40,
+  color: Colors.grey.shade700,
 );
+
+enum UserType{
+  newUser,
+  oldUser,
+}

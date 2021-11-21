@@ -1,10 +1,11 @@
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class CircleBackground extends StatefulWidget {
-  CircleBackground({
-    required this.onPressed,
+class LogOutBackground extends StatefulWidget {
+  LogOutBackground({
+    required this.auth,
     required this.widget,
     required this.height1,
     required this.height2,
@@ -15,13 +16,13 @@ class CircleBackground extends StatefulWidget {
   final double height1, height2;
   final double width1, width2;
   Widget widget;
-  Function onPressed;
+  FirebaseAuth auth;
 
   @override
-  State<CircleBackground> createState() => _CircleBackgroundState();
+  State<LogOutBackground> createState() => _LogOutBackgroundState();
 }
 
-class _CircleBackgroundState extends State<CircleBackground> {
+class _LogOutBackgroundState extends State<LogOutBackground> {
   Color color = Colors.white;
 
   @override
@@ -36,7 +37,8 @@ class _CircleBackgroundState extends State<CircleBackground> {
       ),
       GestureDetector(
         onTap: () {
-          widget.onPressed;
+          widget.auth.signOut();
+          Navigator.pop(context);
         },
         onTapDown: (TapDownDetails details) {
           setState(() {

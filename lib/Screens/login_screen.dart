@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    
     return Scaffold(
       body: Stack(
         children: [
@@ -26,8 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
 
           Positioned(
-              top: 100,
-              left: size.height/6.7,
+              top: size.height/8,
+              left: size.width/3.4,
               child: Hero(
                   tag: 'logo',
                   child: kAppLogo(context, primaryColor, secondaryColor, 50))),
@@ -56,7 +56,7 @@ manageable.""",
             ),
           ),
            Positioned(
-              bottom: 50, left: size.height / 3.8, 
+              bottom: 50, left: size.width/3.5 , 
               child: const Hero(
                 tag: 'button',
                 child: CustomButton("Get Started")))

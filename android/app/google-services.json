@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "361812060985",
+    "project_id": "travia-63b1c",
+    "storage_bucket": "travia-63b1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361812060985:android:508fd3c5b5a90ede6956e8",
+        "android_client_info": {
+          "package_name": "com.example.final_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361812060985-ajd3s3grv6hb1j17bj57tims81l9bkjk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcwogPz-W8K6A7-MSZwRpPePzNdVbhhjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361812060985-ajd3s3grv6hb1j17bj57tims81l9bkjk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,15 +5,15 @@ import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginButton extends StatefulWidget {
+class SignInButton extends StatefulWidget {
   String text;
-  LoginButton({Key? key, required this.text}) : super(key: key);
+  SignInButton({Key? key, required this.text}) : super(key: key);
 
   @override
-  State<LoginButton> createState() => _LoginButtonState();
+  State<SignInButton> createState() => _SignInButtonState();
 }
 
-class _LoginButtonState extends State<LoginButton> {
+class _SignInButtonState extends State<SignInButton> {
   Color buttonColor = Color(0xFFCE6730);
 
   @override
@@ -24,7 +24,7 @@ class _LoginButtonState extends State<LoginButton> {
       color: Colors.transparent,
       child: GestureDetector(
         onTap: () {
-          UserInfoClass(userType: UserType.newUser).showHalfPage(context,"New User!");
+          UserInfoClass(userType: UserType.oldUser).showHalfPage(context,"Back!");
         },
         onTapDown: (TapDownDetails details) {
           setState(() {
