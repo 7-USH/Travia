@@ -13,18 +13,28 @@ class ListCard extends StatelessWidget {
         color: Colors.transparent,
         child: Stack(children: [
           Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: kBoxShadows,
               borderRadius: BorderRadius.circular(25),
             ),
             alignment: Alignment.center,
-            width: size.width/2.15,
-            height: size.height/3,
-            padding: EdgeInsets.only(top: 5, bottom: 50),
+            width: size.width/1.9,
+            height: size.height/2.9,
             child: ClipRRect(
-              child: Card(
-                child: Image.asset("assets/forest.jpg"),
+              borderRadius: BorderRadius.circular(20),
+              child: GestureDetector(
+                onTap: (){
+
+                  // do something
+
+                },
+                child: SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: Image.asset("assets/art.jpg"),
+                ),
               ),
             ),
           ),

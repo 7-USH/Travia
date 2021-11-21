@@ -98,3 +98,9 @@ List<BoxShadow> kBoxShadows = [
       spreadRadius: -2,
       blurRadius: 20),
 ];
+
+final TextStyle kBlackText = GoogleFonts.belgrano(
+    color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500);
+
+final TextStyle kOrangeText = GoogleFonts.belgrano(
+    color: Color(0xFFCE6730), fontSize: 20, fontWeight: FontWeight.w500);    

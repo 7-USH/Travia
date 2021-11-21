@@ -4,6 +4,7 @@ import 'package:final_project/accessories/list_card.dart';
 import 'package:final_project/accessories/logout_button.dart';
 import 'package:final_project/accessories/text_field.dart';
 import 'package:final_project/constants.dart';
+import 'package:final_project/reusablewidgets/change_color_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -18,11 +19,12 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   // ignore: unused_field
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white.withOpacity(0.95),
       body: SafeArea(
         child: Column(
@@ -40,7 +42,9 @@ class _MainScreenState extends State<MainScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 15),
                       child: CircleBackground(
-                        onPressed: () {},
+                        onPressed: () {
+
+                        },
                         widget: Icon(
                           Icons.person,
                           color: Color(0xFFCE6730),
@@ -99,10 +103,40 @@ class _MainScreenState extends State<MainScreen> {
               height: 30,
             ),
             Center(child: MyTextField()),
-            SizedBox(
-              height: 150,
+            const SizedBox(
+              height: 8,
             ),
-            ListCard(),
+            Container(
+              height: 60,
+              color: Colors.transparent,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  OnClickTextColorChange(message: "Most Viewed",
+                  onTap: (){
+
+                  }
+                  ,),
+                  OnClickTextColorChange(message: "Popular",
+                  onTap: (){
+
+                  }),
+                  OnClickTextColorChange(message: "Recommended",
+                  onTap: (){
+
+                  }
+                  ),
+                  OnClickTextColorChange(message: "Best in Nature",
+                   onTap: () {
+
+                  }),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: size.height/50,
+            ),
+            MyListView(size: size),
           ],
         ),
       ),
@@ -111,3 +145,26 @@ class _MainScreenState extends State<MainScreen> {
 }
 
 
+
+class MyListView extends StatelessWidget {
+  const MyListView({
+    Key? key,
+    required this.size,
+  }) : super(key: key);
+
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.transparent,
+      height: size.height/3+50,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index) {
+            return ListCard();
+          }),
+    );
+  }
+}

@@ -63,7 +63,7 @@ class UserInfoClass {
                       if (newUser != null) {
                        Navigator.pushNamed(context, MainScreen.id);
                       }
-        
+                
                     } catch (e) {
                       print(e);
                     }
@@ -73,7 +73,7 @@ class UserInfoClass {
                     try {
                       final newUser = await _auth.signInWithEmailAndPassword(
                           email: email, password: password);
-
+          
                       // ignore: unnecessary_null_comparison
                       if (newUser != null) {
                         Navigator.pushNamed(context, MainScreen.id);
