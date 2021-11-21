@@ -9,7 +9,8 @@ class CustomNavBar extends StatefulWidget {
 }
 
 class _CustomNavBarState extends State<CustomNavBar> {
-  Color selectedBackgroundColor = Colors.white.withOpacity(0.3);
+
+  Color selectedBackgroundColor = Colors.white.withOpacity(0.2);
   Color simpleColor = Colors.black;
   Color effectColor = const Color(0xFFCE6730);
 
@@ -50,7 +51,11 @@ class _CustomNavBarState extends State<CustomNavBar> {
       onTap: () {
             setState(() {
               _selectedIndex = label;
-            });},
+            });
+            
+            //TODO : function to new page
+
+            },
             
       child: Container(
           height: 70,

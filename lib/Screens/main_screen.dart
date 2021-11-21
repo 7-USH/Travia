@@ -9,6 +9,7 @@ import 'package:final_project/reusablewidgets/tab_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+
 // ignore: use_key_in_widget_constructors
 class MainScreen extends StatefulWidget {
   static String id = 'mainScreen';
@@ -20,7 +21,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   // ignore: unused_field
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
+  
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

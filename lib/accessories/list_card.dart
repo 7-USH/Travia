@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
+
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -27,13 +28,13 @@ class ListCard extends StatelessWidget {
               child: GestureDetector(
                 onTap: (){
 
-                  // do something
+                  // TODO: Function to new Page from image 
 
                 },
                 child: SizedBox(
                   height: 100,
                   width: 100,
-                  child: null,
+                  child:null,
                 ),
               ),
             ),
