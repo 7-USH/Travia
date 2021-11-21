@@ -4,7 +4,7 @@ import 'package:final_project/accessories/list_card.dart';
 import 'package:final_project/accessories/logout_button.dart';
 import 'package:final_project/accessories/text_field.dart';
 import 'package:final_project/constants.dart';
-import 'package:final_project/reusablewidgets/change_color_text.dart';
+import 'package:final_project/reusablewidgets/custom_navbar.dart';
 import 'package:final_project/reusablewidgets/tab_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +19,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   // ignore: unused_field
-  // final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -65,20 +65,20 @@ class _MainScreenState extends State<MainScreen> {
                     )
                   ],
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(right: 15),
-                //   child: LogOutBackground(
-                //     auth: _auth,
-                //     widget: Icon(
-                //       Icons.settings_outlined,
-                //       color: Color(0xFFCE6730),
-                //     ),
-                //     height1: 50,
-                //     height2: 40,
-                //     width1: 50,
-                //     width2: 40,
-                //   ),
-                // ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: LogOutBackground(
+                    auth: _auth,
+                    widget: Icon(
+                      Icons.settings_outlined,
+                      color: Color(0xFFCE6730),
+                    ),
+                    height1: 50,
+                    height2: 40,
+                    width1: 50,
+                    width2: 40,
+                  ),
+                ),
               ],
             ),
             const SizedBox(
@@ -112,6 +112,7 @@ class _MainScreenState extends State<MainScreen> {
               height: size.height/50,
             ),
             MyListView(size: size),
+            CustomNavBar()
           ],
         ),
       ),

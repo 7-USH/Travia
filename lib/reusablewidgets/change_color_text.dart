@@ -51,7 +51,7 @@ class _OnClickTextColorChangeState extends State<OnClickTextColorChange> {
           height: 5,
           width: 5,
           decoration: BoxDecoration(
-            color: widget.label == widget.tappedIndex ? orangeColor : Colors.black,
+            color: widget.label == widget.tappedIndex ? orangeColor : Colors.transparent,
             borderRadius: BorderRadius.circular(5),
           ),
         )

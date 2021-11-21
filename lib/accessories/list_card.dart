@@ -33,7 +33,7 @@ class ListCard extends StatelessWidget {
                 child: SizedBox(
                   height: 100,
                   width: 100,
-                  child: Image.asset("assets/art.jpg"),
+                  child: null,
                 ),
               ),
             ),
@@ -41,3 +41,4 @@ class ListCard extends StatelessWidget {
         ]));
   }
 }
+
