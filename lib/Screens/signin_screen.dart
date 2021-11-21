@@ -31,37 +31,45 @@ class _SignInScreenState extends State<SignInScreen> {
         children: [
           WaveWidget(Colors.white, size, size.height / 3),
           Positioned(
-              top: size.height / 7,
-              left: size.width / 3.71,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Hero(
-                      tag: 'logo',
-                      child: kAppLogo(
-                          context, Colors.white, Colors.white24, 50)),
-                  SizedBox(
-                    height: size.height / 7,
-                  ),
-                  myAnimeText(),
-                  // ignore: prefer_const_constructo
-                ],
+              top: size.height/7,
+              child: Padding(
+                padding: EdgeInsets.only(left: size.width/3.6,right: size.width/5),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Hero(
+                        tag: 'logo',
+                        child: kAppLogo(
+                            context, Colors.white, Colors.white24, 50)),
+                    SizedBox(
+                      height: size.height / 7,
+                    ),
+                    myAnimeText(),
+                    // ignore: prefer_const_constructo
+                  ],
+                ),
               )),
           // ignore:
           Positioned(
-              right: size.width / 4.1,
-              bottom: size.height / 6,
-              child: Hero(
-                  tag: 'button',
-                  child: LoginButton(
-                    text: "Register",
-                  ))),
+            bottom: size.height/3,
+            child: Padding(
+              padding: EdgeInsets.only(left:size.width/3.9),
+              child: LoginButton(
+                text: "Register",
+              ),
+            ),
+          ),
 
           Positioned(
-              right: size.width / 4.1,
-              bottom: size.height / 3.4,
-              child: SignInButton(
-                text: "SignIn",
+              bottom: size.height / 5,
+              child: Padding(
+                padding: EdgeInsets.only(left: size.width/3.9),
+                child: Hero(
+                  tag: 'button',
+                  child: SignInButton(
+                    text: "SignIn",
+                  ),
+                ),
               ))
         ],
       ),

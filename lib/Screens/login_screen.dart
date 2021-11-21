@@ -26,11 +26,14 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
 
           Positioned(
-              top: size.height/8,
-              left: size.width/3.4,
-              child: Hero(
-                  tag: 'logo',
-                  child: kAppLogo(context, primaryColor, secondaryColor, 50))),
+              top: size.height/7,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: size.width / 3.6, right: size.width / 5),
+                child: Hero(
+                    tag: 'logo',
+                    child: kAppLogo(context, primaryColor, secondaryColor, 50)),
+              )),
           // ignore: prefer_const_constructors
           Positioned(
             left: 20,
