@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ContinueButton extends StatefulWidget {
+
   ContinueButton({Key? key, required this.onPressed}) : super(key: key);
 
   Function onPressed;
@@ -19,10 +20,11 @@ class _ContinueButtonState extends State<ContinueButton> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      key: widget.key,
       color: Colors.transparent,
       child: GestureDetector(
         onTap: () async {
-           await widget.onPressed();
+          await widget.onPressed();
           Provider.of<Data>(context, listen: false).emailtextController.clear();
           Provider.of<Data>(context, listen: false).passtextController.clear();
         },

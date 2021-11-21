@@ -18,8 +18,7 @@ class _LoginButtonState extends State<LoginButton> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
+   
     return Material(
       color: Colors.transparent,
       child: GestureDetector(

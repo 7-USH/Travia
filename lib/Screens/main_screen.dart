@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:final_project/accessories/circular_background.dart';
+import 'package:final_project/accessories/list_card.dart';
 import 'package:final_project/accessories/logout_button.dart';
 import 'package:final_project/accessories/text_field.dart';
 import 'package:final_project/constants.dart';
@@ -17,7 +18,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   // ignore: unused_field
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
+  
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -54,7 +55,7 @@ class _MainScreenState extends State<MainScreen> {
                       width: size.width / 20,
                     ),
                     Text(
-                      "Hii, Tushar!",
+                      "Hello, There!",
                       style: kMainScreenText,
                     )
                   ],
@@ -98,9 +99,15 @@ class _MainScreenState extends State<MainScreen> {
               height: 30,
             ),
             Center(child: MyTextField()),
+            SizedBox(
+              height: 150,
+            ),
+            ListCard(),
           ],
         ),
       ),
     );
   }
 }
+
+

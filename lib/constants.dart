@@ -81,7 +81,20 @@ final TextStyle welcomeText = GoogleFonts.pacifico(
   color: Colors.grey.shade700,
 );
 
-enum UserType{
+enum UserType {
   newUser,
   oldUser,
 }
+
+List<BoxShadow> kBoxShadows = [
+  BoxShadow(
+      color: Colors.black.withOpacity(0.19),
+      offset: const Offset(0.5, 4),
+      spreadRadius: 1,
+      blurRadius: 8),
+  BoxShadow(
+      color: Colors.white.withOpacity(0.4),
+      offset: const Offset(-3, -4),
+      spreadRadius: -2,
+      blurRadius: 20),
+];
