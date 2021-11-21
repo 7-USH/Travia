@@ -37,10 +37,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Hero(
-                        tag: 'logo',
-                        child: kAppLogo(
-                            context, Colors.white, Colors.white24, 50)),
+                    kAppLogo(
+                        context, Colors.white, Colors.white24, 50),
                     SizedBox(
                       height: size.height / 7,
                     ),

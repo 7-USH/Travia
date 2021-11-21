@@ -42,8 +42,8 @@ Widget kAppLogo(context, Color prime, Color second, double size) {
     style: kLogoText,
   ).shimmer(
     primaryColor: prime,
-    secondaryColor: second.withOpacity(1),
-    duration: const Duration(seconds: 3),
+    secondaryColor: second.withOpacity(0.5),
+    duration: const Duration(seconds: 1),
   );
 }
 
@@ -104,3 +104,5 @@ final TextStyle kBlackText = GoogleFonts.belgrano(
 
 final TextStyle kOrangeText = GoogleFonts.belgrano(
     color: Color(0xFFCE6730), fontSize: 20, fontWeight: FontWeight.w500);    
+
+enum selectTab { popular, mostViewed, recommended, bestInNature }    

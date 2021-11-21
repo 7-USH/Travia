@@ -1,13 +1,23 @@
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 
+
 // ignore: must_be_immutable
 class OnClickTextColorChange extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
-  OnClickTextColorChange({Key? key, required this.message, required this.onTap})
+  OnClickTextColorChange(
+      {Key? key,
+      required this.tappedIndex,
+      required this.label,
+      required this.message,
+      required this.onTap,
+      required this.shouldColor})
       : super(key: key);
   Function onTap;
   String message;
+  bool shouldColor;
+  int label;
+  int tappedIndex;
 
   @override
   _OnClickTextColorChangeState createState() => _OnClickTextColorChangeState();
@@ -30,13 +40,10 @@ class _OnClickTextColorChangeState extends State<OnClickTextColorChange> {
                 overlayColor: MaterialStateProperty.all(Colors.transparent)),
             child: Text(
               widget.message,
-              style: style,
+              style: widget.label==widget.tappedIndex ? kOrangeText : style,
             ),
             onPressed: () {
-              setState(() {
-                style = kOrangeText;
-                transColor = orangeColor;
-              });
+              widget.onTap();
             },
           ),
         ),
@@ -44,7 +51,7 @@ class _OnClickTextColorChangeState extends State<OnClickTextColorChange> {
           height: 5,
           width: 5,
           decoration: BoxDecoration(
-            color: transColor,
+            color: widget.label == widget.tappedIndex ? orangeColor : Colors.black,
             borderRadius: BorderRadius.circular(5),
           ),
         )
