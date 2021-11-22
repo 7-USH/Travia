@@ -29,81 +29,84 @@ class UserInfoClass {
         builder: (context) {
           return Container(
             color: Colors.white,
-            height: MediaQuery.of(context).size.height / 1.68,
+            height: MediaQuery.of(context).size.height /1.59,
             width: double.infinity,
-            child: Column(
-              children: [
-                Text(
-                  "Welcome $text",
-                  style: welcomeText,
-                ),
-                const SizedBox(
-                  height: 80,
-                ),
-                tush1,
-                SizedBox(
-                  height: 20,
-                ),
-                tush2,
-                SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                ContinueButton(onPressed: () async {
-                  if (userType == UserType.newUser) {
-                    print(email);
-                    print(password);
-                    try {
-                      final newUser =
-                          await _auth.createUserWithEmailAndPassword(
-                              email: email, password: password);
-                      // ignore: unnecessary_null_comparison
-                      if (newUser != null) {
-                       Navigator.pushNamed(context, MainScreen.id);
+            child: ListView(
+              children: [Column(
+                children: [
+                  Text(
+                    "Welcome $text",
+                    style: welcomeText,
+                  ),
+                  const SizedBox(
+                    height: 80,
+                  ),
+                  tush1,
+                  SizedBox(
+                    height: 20,
+                  ),
+                  tush2,
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ContinueButton(onPressed: () async {
+                    if (userType == UserType.newUser) {
+                      print(email);
+                      print(password);
+                      try {
+                        final newUser =
+                            await _auth.createUserWithEmailAndPassword(
+                                email: email, password: password);
+                        // ignore: unnecessary_null_comparison
+                        if (newUser != null) {
+                         Navigator.pushNamed(context, MainScreen.id);
+                        }
+                  
+                      } catch (e) {
+                        print(e);
                       }
-                
-                    } catch (e) {
-                      print(e);
-                    }
-                  } else if (userType == UserType.oldUser) {
-                    print(email);
-                    print(password);
-                    try {
-                      final newUser = await _auth.signInWithEmailAndPassword(
-                          email: email, password: password);
-          
-                      // ignore: unnecessary_null_comparison
-                      if (newUser != null) {
-                        Navigator.pushNamed(context, MainScreen.id);
-                        // Provider.of<Data>(context).fieldText.clear();
+                    } else if (userType == UserType.oldUser) {
+                      print(email);
+                      print(password);
+                      try {
+                        final newUser = await _auth.signInWithEmailAndPassword(
+                            email: email, password: password);
+                      
+                        // ignore: unnecessary_null_comparison
+                        if (newUser != null) {
+                          Navigator.pushNamed(context, MainScreen.id);
+                          // Provider.of<Data>(context).fieldText.clear();
+                        }
+                      } catch (e) {
+                        print(e);
                       }
-                    } catch (e) {
-                      print(e);
                     }
-                  }
-                }),
-                SizedBox(
-                  height: 20,
-                ),
-                TextButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        overlayColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        shadowColor:
-                            MaterialStateProperty.all(Colors.transparent),
-                        foregroundColor:
-                            MaterialStateProperty.all(Colors.transparent)),
-                    autofocus: true,
-                    onPressed: () {},
-                    child: Text(
-                      "Let us know if your facing any issue !",
-                      style: kMainScreenText,
-                    )),
-              ],
+                  }),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          overlayColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          shadowColor:
+                              MaterialStateProperty.all(Colors.transparent),
+                          foregroundColor:
+                              MaterialStateProperty.all(Colors.transparent)),
+                      autofocus: true,
+                      onPressed: () {},
+                      child: Text(
+                        "Let us know if your facing any issue !",
+                        style: kMainScreenText,
+                      )),
+                ],
+              ),
+              ]
             ),
           );
         });

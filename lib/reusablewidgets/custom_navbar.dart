@@ -1,3 +1,4 @@
+import 'package:final_project/Screens/favourites_screen.dart';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,6 @@ class CustomNavBar extends StatefulWidget {
 }
 
 class _CustomNavBarState extends State<CustomNavBar> {
-
   Color selectedBackgroundColor = Colors.white.withOpacity(0.2);
   Color simpleColor = Colors.black;
   Color effectColor = const Color(0xFFCE6730);
@@ -33,38 +33,43 @@ class _CustomNavBarState extends State<CustomNavBar> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            buildNewSingleNavbar(Icons.home_outlined, 0),
-            buildNewSingleNavbar(Icons.favorite_outline, 1),
-            buildNewSingleNavbar(Icons.travel_explore, 2),
-            buildNewSingleNavbar(Icons.settings_outlined, 3),
+            buildNewSingleNavbar(icon:Icons.home_outlined,label:0,
+            onTap: (){}),
+            buildNewSingleNavbar(icon:Icons.favorite_outline, label:1, 
+            onTap: ()=>Navigator.pushNamed(context, FavouriteScreen.id)),
+
+            buildNewSingleNavbar(icon:Icons.travel_explore, label:2,
+            onTap: (){
+
+            }),
+            buildNewSingleNavbar(icon:Icons.settings_outlined,label: 3,
+            onTap: (){
+
+            }),
           ],
         ),
       ),
     );
   }
 
-  Widget buildNewSingleNavbar(
-    IconData icon,
-    int label,
-  ) {
+  Widget buildNewSingleNavbar({required IconData icon, required int label, required Function onTap}) {
     return GestureDetector(
       onTap: () {
-            setState(() {
-              _selectedIndex = label;
-            });
-            
-            //TODO : function to new page
+        setState(() {
+          _selectedIndex = label;
+        });
 
-            },
-            
+        onTap();
+      },
       child: Container(
           height: 70,
           width: 70,
           decoration: BoxDecoration(
-            color:
-                label == _selectedIndex ? Colors.white : selectedBackgroundColor,
+            color: label == _selectedIndex
+                ? Colors.white
+                : selectedBackgroundColor,
             borderRadius: BorderRadius.circular(40),
-            boxShadow: label==_selectedIndex ? kBoxShadows : null,
+            boxShadow: label == _selectedIndex ? kBoxShadows : null,
           ),
           // ignore: prefer_const_constructors
           child: Icon(

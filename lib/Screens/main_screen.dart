@@ -113,7 +113,7 @@ class _MainScreenState extends State<MainScreen> {
               height: size.height/50,
             ),
             MyListView(size: size),
-            CustomNavBar()
+            Flexible(child: CustomNavBar())
           ],
         ),
       ),

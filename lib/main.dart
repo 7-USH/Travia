@@ -1,3 +1,5 @@
+import 'package:final_project/Screens/destination_screen.dart';
+import 'package:final_project/Screens/favourites_screen.dart';
 import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
 import 'package:final_project/Screens/signin_screen.dart';
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
           LoginScreen.id: (context) => LoginScreen(),
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),
+          DestinationPage.id: (context) =>DestinationPage(),
+          FavouriteScreen.id:(context)=>FavouriteScreen(),
         },
       ),
     );
