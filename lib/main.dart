@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/Screens/favourites_screen.dart';
+import 'package:final_project/Screens/illustration_screen.dart';
 import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
 import 'package:final_project/Screens/signin_screen.dart';
@@ -25,8 +24,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: kBackgroundTheme,
         debugShowCheckedModeBanner: false,
-        initialRoute: LoginScreen.id,
+        initialRoute: ConcentricTransistion.id,
         routes: {
+          ConcentricTransistion.id:(context)=>ConcentricTransistion(),
           LoginScreen.id: (context) => LoginScreen(),
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),

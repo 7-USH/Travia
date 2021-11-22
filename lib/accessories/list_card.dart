@@ -4,6 +4,7 @@ import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 
+
 class ListCard extends StatelessWidget {
   const ListCard({Key? key}) : super(key: key);
 
@@ -13,16 +14,19 @@ class ListCard extends StatelessWidget {
     return Material(
         color: Colors.transparent,
         child: GestureDetector(
-          onTap: () =>   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return DestinationPage(child: Container(
-                    color: Colors.red,
-                    height: 400,
-                    width: double.infinity,
-                    child: Image.asset("assets/taj.jpg",
-                    fit: BoxFit.cover,
-                    ),
-                    ),);
-                  })),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) {
+            return DestinationPage(
+              child: Container(
+                color: Colors.red,
+                height: 400,
+                width: double.infinity,
+                child: Image.asset(
+                  "assets/taj.jpg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          })),
           child: Stack(children: [
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -40,39 +44,75 @@ class ListCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      // ignore: sized_box_for_whitespace
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        child: Image.asset("assets/taj.jpg",
-                        fit: BoxFit.cover,
-                        ) ,
-                      )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left:20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Taj Mahal",
+                        borderRadius: BorderRadius.circular(20),
+                        // ignore: sized_box_for_whitespace
+                        child: Container(
+                          height: 200,
+                          width: 200,
+                          child: Image.asset(
+                            "assets/taj.jpg",
+                            fit: BoxFit.cover,
+                          ),
+                        )),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Taj Mahal",
                             style: kBlackSmallText,
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Text("Agra",
-                            style: kBlackVerySmallText,)
-                          ],
-                        ),
-                      )
+                          ),
+                          SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            "Agra",
+                            style: kBlackVerySmallText,
+                          )
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
             ),
+            Positioned(
+                left: size.width / 2.3,
+                bottom: size.height / 13,
+                child: HeartIcon())
           ]),
+        ));
+  }
+}
+
+class HeartIcon extends StatefulWidget {
+  const HeartIcon({Key? key}) : super(key: key);
+
+  @override
+  _HeartIconState createState() => _HeartIconState();
+}
+
+class _HeartIconState extends State<HeartIcon> {
+  Color blackColor = Colors.black;
+  bool oneTap = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          setState(() {
+            oneTap = !oneTap;
+
+            // add function;
+          });
+        },
+        icon: Icon(
+          Icons.favorite_outline_rounded,
+          color: oneTap == true ? Color(0xFFCE6730) : blackColor,
         ));
   }
 }

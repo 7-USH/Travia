@@ -12,7 +12,7 @@ class CustomClipath extends StatelessWidget {
     return Stack(children: [
        ClipPath(
          child: Container(
-           color: Colors.transparent.withOpacity(0.2),
+           color: const Color(0xFFCE6730).withOpacity(0.3),
            height: 460,
          ).shimmer(
            primaryColor: const Color(0xFFCE6730),
