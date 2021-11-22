@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
           LoginScreen.id: (context) => LoginScreen(),
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),
-          DestinationPage.id: (context) =>DestinationPage(),
           FavouriteScreen.id:(context)=>FavouriteScreen(),
         },
       ),

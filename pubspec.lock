@@ -78,6 +78,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
+  concentric_transition:
+    dependency: "direct main"
+    description:
+      name: concentric_transition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1+1"
   crypto:
     dependency: transitive
     description:

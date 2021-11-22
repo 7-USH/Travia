@@ -14,7 +14,14 @@ class ListCard extends StatelessWidget {
         color: Colors.transparent,
         child: GestureDetector(
           onTap: () =>   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return DestinationPage();
+                    return DestinationPage(child: Container(
+                    color: Colors.red,
+                    height: 400,
+                    width: double.infinity,
+                    child: Image.asset("assets/taj.jpg",
+                    fit: BoxFit.cover,
+                    ),
+                    ),);
                   })),
           child: Stack(children: [
             Container(
@@ -27,12 +34,41 @@ class ListCard extends StatelessWidget {
               alignment: Alignment.center,
               width: size.width / 1.9,
               height: size.height / 2.9,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: SizedBox(
-                  height: 100,
-                  width: 100,
-                  child: null,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      // ignore: sized_box_for_whitespace
+                      child: Container(
+                        height: 200,
+                        width: 200,
+                        child: Image.asset("assets/taj.jpg",
+                        fit: BoxFit.cover,
+                        ) ,
+                      )),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left:20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Taj Mahal",
+                            style: kBlackSmallText,
+                            ),
+                            SizedBox(
+                              height: 3,
+                            ),
+                            Text("Agra",
+                            style: kBlackVerySmallText,)
+                          ],
+                        ),
+                      )
+                  ],
                 ),
               ),
             ),

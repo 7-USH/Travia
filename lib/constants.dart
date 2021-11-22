@@ -106,3 +106,9 @@ final TextStyle kOrangeText = GoogleFonts.belgrano(
     color: Color(0xFFCE6730), fontSize: 20, fontWeight: FontWeight.w500);    
 
 enum selectTab { popular, mostViewed, recommended, bestInNature }    
+
+final TextStyle kBlackSmallText = GoogleFonts.belgrano(
+    color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500);
+
+final TextStyle kBlackVerySmallText = GoogleFonts.belgrano(
+    color: Colors.grey, fontSize: 13, fontWeight: FontWeight.w500);
