@@ -14,11 +14,9 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Center(
-          child: Text("this is Favourite Screen"),
-        ),
+      backgroundColor: Colors.white.withOpacity(0.95),
+      body: Center(
+        child: Text("this is Favourite Screen"),
       ),
     );
   }

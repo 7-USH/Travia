@@ -16,7 +16,7 @@ class _DestinationPageState extends State<DestinationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.white.withOpacity(0.95),
       body: Center(child: Text("this is destination page")),
     );
   }
