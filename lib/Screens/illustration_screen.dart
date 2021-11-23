@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors_in_immutables
 
 import 'package:final_project/Screens/login_screen.dart';
-import 'package:final_project/accessories/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:concentric_transition/concentric_transition.dart';
 
@@ -33,14 +32,12 @@ class _ConcentricTransistionState extends State<ConcentricTransistion> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ConcentricPageView(
-        onFinish: () {
-          Navigator.pushNamed(context, LoginScreen.id);
-        },
+        onFinish: () => Navigator.pushNamed(context, LoginScreen.id),
         radius: 30,
         verticalPosition: 0.85,
         colors: [const Color(0xFFCE6730), Colors.white, const Color(0xFFCE6730).withOpacity(0.3)],
         itemBuilder: (index, value) {
-          int pageIndex = (index % pages.length);
+          int pageIndex = (index%pages.length);
           // ignore: avoid_unnecessary_containers
           return Container(
             child: Center(
@@ -52,7 +49,7 @@ class _ConcentricTransistionState extends State<ConcentricTransistion> {
                   ),
                 ],
               ),
-              
+
             ),
           );
         },

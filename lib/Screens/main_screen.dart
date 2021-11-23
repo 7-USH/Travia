@@ -4,11 +4,11 @@ import 'package:final_project/accessories/list_card.dart';
 import 'package:final_project/accessories/logout_button.dart';
 import 'package:final_project/accessories/text_field.dart';
 import 'package:final_project/constants.dart';
+import 'package:final_project/networking/firestore_getinfo.dart';
 import 'package:final_project/reusablewidgets/custom_navbar.dart';
 import 'package:final_project/reusablewidgets/tab_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 
 // ignore: use_key_in_widget_constructors
 class MainScreen extends StatefulWidget {
@@ -21,7 +21,13 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   // ignore: unused_field
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  
+
+  @override
+  void initState() {
+    super.initState();
+    FirestorInfo().dataStream();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -44,9 +50,7 @@ class _MainScreenState extends State<MainScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 15),
                       child: CircleBackground(
-                        onPressed: () {
-
-                        },
+                        onPressed: () {},
                         widget: Icon(
                           Icons.person,
                           color: Color(0xFFCE6730),
@@ -110,7 +114,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             RowTabWidget(),
             SizedBox(
-              height: size.height/50,
+              height: size.height / 50,
             ),
             MyListView(size: size),
             Flexible(child: CustomNavBar())
@@ -120,10 +124,6 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-
-
-
 
 class MyListView extends StatelessWidget {
   const MyListView({
@@ -137,7 +137,7 @@ class MyListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      height: size.height/3+50,
+      height: size.height / 3 + 50,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 5,

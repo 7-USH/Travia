@@ -37,7 +37,7 @@ class ListCard extends StatelessWidget {
               ),
               alignment: Alignment.center,
               width: size.width / 1.9,
-              height: size.height / 2.9,
+              height: size.height/2.9, //size.height / 2.9
               child: Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: Column(
