@@ -15,9 +15,9 @@ class CustomClipath extends StatelessWidget {
            color: const Color(0xFFCE6730).withOpacity(0.3),
            height: 460,
          ).shimmer(
-           primaryColor: const Color(0xFFCE6730),
+           primaryColor:Colors.grey,
            secondaryColor: Colors.white,
-           duration: const Duration(seconds: 10),
+           duration: const Duration(seconds: 8),
          ),
          clipper: MyClipper(),
        ),

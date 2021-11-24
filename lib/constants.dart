@@ -6,12 +6,12 @@ import 'package:velocity_x/velocity_x.dart';
 
 final TextStyle kHeadingText = GoogleFonts.lobster(
   fontSize: 30,
-  color: Colors.white,
+  color: Colors.black,
 );
 
 final TextStyle kParagraphText = GoogleFonts.vidaloka(
   fontSize: 15,
-  color: Colors.white,
+  color: Colors.black,
 );
 
 final TextStyle kParagraphDarkText = GoogleFonts.vidaloka(
@@ -43,7 +43,7 @@ Widget kAppLogo(context, Color prime, Color second, double size) {
   ).shimmer(
     primaryColor: prime,
     secondaryColor: second.withOpacity(0.5),
-    duration: const Duration(seconds: 1),
+    duration: const Duration(seconds: 2),
   );
 }
 

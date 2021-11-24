@@ -4,9 +4,13 @@ import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 
-
+// ignore: must_be_immutable
 class ListCard extends StatelessWidget {
-  const ListCard({Key? key}) : super(key: key);
+  ListCard({Key? key, required this.imageUrl,required this.title,required this.subtitle}) : super(key: key);
+
+  String imageUrl;
+  String title;
+  String subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +24,8 @@ class ListCard extends StatelessWidget {
                 color: Colors.red,
                 height: 400,
                 width: double.infinity,
-                child: Image.asset(
-                  "assets/taj.jpg",
+                child: Image.network(
+                  imageUrl,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -37,7 +41,7 @@ class ListCard extends StatelessWidget {
               ),
               alignment: Alignment.center,
               width: size.width / 1.9,
-              height: size.height/2.9, //size.height / 2.9
+              height: size.height / 2.9, //size.height / 2.9
               child: Padding(
                 padding: const EdgeInsets.only(top: 8),
                 child: Column(
@@ -49,8 +53,8 @@ class ListCard extends StatelessWidget {
                         child: Container(
                           height: 200,
                           width: 200,
-                          child: Image.asset(
-                            "assets/taj.jpg",
+                          child: Image.network(
+                            imageUrl,
                             fit: BoxFit.cover,
                           ),
                         )),
@@ -63,14 +67,14 @@ class ListCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Taj Mahal",
+                            title,
                             style: kBlackSmallText,
                           ),
                           SizedBox(
                             height: 3,
                           ),
                           Text(
-                            "Agra",
+                            subtitle,
                             style: kBlackVerySmallText,
                           )
                         ],

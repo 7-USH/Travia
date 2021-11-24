@@ -1,13 +1,15 @@
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 
-class FirestorInfo {
-  final _firestore = FirebaseFirestore.instance;
-
+class FirestorInfo extends ChangeNotifier {
+  static var firestore = FirebaseFirestore.instance;
+  // ignore: prefer_typing_uninitialized_variables
   void dataStream() async {
     await for (var snapShots
-        in _firestore.collection('Destination').snapshots()) {
+        in firestore.collection('Destination').snapshots()) {
       for (var getData in snapShots.docs) {
-        // ignore: avoid_print
         print(getData.data());
       }
     }

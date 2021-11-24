@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/accessories/circular_background.dart';
 import 'package:final_project/accessories/list_card.dart';
 import 'package:final_project/accessories/logout_button.dart';
@@ -138,14 +139,29 @@ class MyListView extends StatelessWidget {
     return Container(
       color: Colors.transparent,
       height: size.height / 3 + 50,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          itemBuilder: (BuildContext context, int index) {
-            return ListCard();
+      child: StreamBuilder<QuerySnapshot>(
+          stream: FirestorInfo.firestore.collection('Destination').snapshots(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.black,
+                ),
+              );
+            } else {
+              return ListView(
+                scrollDirection: Axis.horizontal,
+                children: snapshot.data!.docs.map((DocumentSnapshot document) {
+                  Map<String, dynamic> data =
+                      document.data()! as Map<String, dynamic>;
+                  return ListCard(
+                      imageUrl: data['imageUrl'].toString(),
+                      title: data['title'].toString(),
+                      subtitle: data['subTitle'].toString());
+                }).toList(),
+              );
+            }
           }),
     );
   }
 }
-
-

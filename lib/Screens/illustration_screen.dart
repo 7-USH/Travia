@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors_in_immutables
+// ignore_for_file: prefer_const_constructors_in_immutables, sized_box_for_whitespace
 
 import 'package:final_project/Screens/login_screen.dart';
+import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:concentric_transition/concentric_transition.dart';
 
@@ -30,26 +31,44 @@ class _ConcentricTransistionState extends State<ConcentricTransistion> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: ConcentricPageView(
         onFinish: () => Navigator.pushNamed(context, LoginScreen.id),
         radius: 30,
         verticalPosition: 0.85,
-        colors: [const Color(0xFFCE6730), Colors.white, const Color(0xFFCE6730).withOpacity(0.3)],
+        colors: [
+          const Color(0xFFCE6730),
+          Colors.white,
+          const Color(0xFFCE6730).withOpacity(0.3)
+        ],
         itemBuilder: (index, value) {
-          int pageIndex = (index%pages.length);
+          int pageIndex = (index % pages.length);
           // ignore: avoid_unnecessary_containers
           return Container(
+            height: size.height,
+            width: size.width,
             child: Center(
               child: Stack(
-                children: [
-                  Image.network(
-                    pages[pageIndex]['image'],
-                    width: 300,
-                  ),
-                ],
-              ),
-
+                fit: StackFit.expand,
+                children: [          
+                Image.network(
+                  pages[pageIndex]['image'],
+                  width: 300,
+                ),
+                Positioned(
+                  height: size.height/4,
+                  width: size.width + 250,
+                  child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, LoginScreen.id);
+                      },
+                      child: Text(
+                        "Skip",
+                        style: kHeadingText,
+                      )),
+                )
+              ]),
             ),
           );
         },
