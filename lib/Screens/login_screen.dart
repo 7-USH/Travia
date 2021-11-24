@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Padding(
                 padding: EdgeInsets.only(
                     left: size.width / 3.42, right: size.width / 5),
-                child: kAppLogo(context, Colors.white, Colors.grey, 50),
+                child: kAppLogo(context, Colors.white, Colors.white12,50),
               )),
        
           // ignore: prefer_const_constructors
