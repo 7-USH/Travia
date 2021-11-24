@@ -157,7 +157,9 @@ class MyListView extends StatelessWidget {
                   return ListCard(
                       imageUrl: data['imageUrl'].toString(),
                       title: data['title'].toString(),
-                      subtitle: data['subTitle'].toString());
+                      subtitle: data['subTitle'].toString(), 
+                      about: data['about'].toString(), 
+                      rating: data['rating'].toString(),);
                 }).toList(),
               );
             }

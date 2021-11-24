@@ -10,17 +10,17 @@ class CustomClipath extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-       ClipPath(
-         child: Container(
-           color: const Color(0xFFCE6730).withOpacity(0.3),
-           height: 460,
-         ).shimmer(
-           primaryColor:Colors.grey,
-           secondaryColor: Colors.white,
-           duration: const Duration(seconds: 8),
-         ),
-         clipper: MyClipper(),
-       ),
+      ClipPath(
+        child: Container(
+          color: const Color(0xFFCE6730).withOpacity(0.3),
+          height: 460,
+        ).shimmer(
+          primaryColor: Colors.grey,
+          secondaryColor: Colors.white,
+          duration: const Duration(seconds: 8),
+        ),
+        clipper: MyClipper(),
+      ),
       ClipPath(
         child: widget,
         clipper: MyClipper(),
@@ -28,7 +28,6 @@ class CustomClipath extends StatelessWidget {
     ]);
   }
 }
-
 
 class MyClipper extends CustomClipper<Path> {
   @override
@@ -39,7 +38,7 @@ class MyClipper extends CustomClipper<Path> {
     var endPoint = Offset(size.width / 2, size.height);
     path.quadraticBezierTo(
         controlPoint.dx, controlPoint.dy, endPoint.dx, endPoint.dy);
-    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, size.height+70);
     path.lineTo(size.width, 0);
     return path;
   }

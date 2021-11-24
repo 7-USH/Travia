@@ -6,11 +6,20 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ListCard extends StatelessWidget {
-  ListCard({Key? key, required this.imageUrl,required this.title,required this.subtitle}) : super(key: key);
+  ListCard(
+      {Key? key,
+      required this.rating,
+      required this.about,
+      required this.imageUrl,
+      required this.title,
+      required this.subtitle})
+      : super(key: key);
 
   String imageUrl;
   String title;
   String subtitle;
+  String about;
+  String rating;
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +29,12 @@ class ListCard extends StatelessWidget {
         child: GestureDetector(
           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) {
             return DestinationPage(
-              child: Container(
-                color: Colors.red,
-                height: 400,
-                width: double.infinity,
-                child: Image.network(
-                  imageUrl,
-                  fit: BoxFit.cover,
-                ),
+              about: about,
+              rating: rating,
+              title: title,
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
               ),
             );
           })),

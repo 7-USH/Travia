@@ -103,12 +103,34 @@ final TextStyle kBlackText = GoogleFonts.belgrano(
     color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500);
 
 final TextStyle kOrangeText = GoogleFonts.belgrano(
-    color: Color(0xFFCE6730), fontSize: 20, fontWeight: FontWeight.w500);    
+    color: Color(0xFFCE6730), fontSize: 20, fontWeight: FontWeight.w500);
 
-enum selectTab { popular, mostViewed, recommended, bestInNature }    
+enum selectTab { popular, mostViewed, recommended, bestInNature }
 
 final TextStyle kBlackSmallText = GoogleFonts.belgrano(
     color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500);
 
 final TextStyle kBlackVerySmallText = GoogleFonts.belgrano(
     color: Colors.grey, fontSize: 13, fontWeight: FontWeight.w500);
+
+List<BoxShadow> kImageShadows = [
+  BoxShadow(
+      color: Colors.black.withOpacity(0.5),
+      offset: const Offset(0.6, 4),
+      spreadRadius: 1,
+      blurRadius: 8),
+  BoxShadow(
+      color: Colors.white.withOpacity(0.4),
+      offset: const Offset(-3, -4),
+      spreadRadius: -2,
+      blurRadius: 20),
+];
+
+final TextStyle kImageText = GoogleFonts.notoSerif(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  fontSize: 33,
+);
+
+final TextStyle kBlackBoldSmallText = GoogleFonts.belgrano(
+    color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold);
