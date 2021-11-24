@@ -63,9 +63,12 @@ class _ConcentricTransistionState extends State<ConcentricTransistion> {
                       onPressed: () {
                         Navigator.pushNamed(context, LoginScreen.id);
                       },
-                      child: Text(
-                        "Skip",
-                        style: kHeadingText,
+                      child: Opacity(
+                        opacity: 0.5,
+                        child: Text(
+                          "Skip",
+                          style: kHeadingText,
+                        ),
                       )),
                 )
               ]),

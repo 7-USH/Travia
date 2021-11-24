@@ -24,12 +24,6 @@ class _MainScreenState extends State<MainScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
-  void initState() {
-    super.initState();
-    FirestorInfo().dataStream();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(

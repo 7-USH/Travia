@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: kBackgroundTheme,
         debugShowCheckedModeBanner: false,
-        initialRoute: LoginScreen.id,
+        initialRoute: ConcentricTransistion.id,
         routes: {
           ConcentricTransistion.id:(context)=>ConcentricTransistion(),
           LoginScreen.id: (context) => LoginScreen(),

@@ -25,6 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
             width: double.infinity,
             fit: BoxFit.cover,
             alignment: Alignment.center,
+            colorBlendMode: BlendMode.darken,
           ),
  
           Positioned(
@@ -35,30 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: kAppLogo(context, Colors.white, Colors.white12,50),
               )),
        
-          // ignore: prefer_const_constructors
-          Positioned(
-            left: 20,
-            bottom: 200,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-//                 Text(
-//                   "Discover,\nworld with us.",
-//                   style: kHeadingText,
-//                 ),
-//                 Text(
-//                   """Even the most foreign country or 
-// faraway places aren’t light years 
-// away.The journey may appear long 
-// and intimidating,but when you 
-// take one step at a time, it’s 
-// manageable.""",
-//                   style: kParagraphText,
-//                 ),
-              ],
-            ),
-          ),
+          // ignore: prefer_const_constructor
            Positioned(
               bottom: 50, left: size.width/3.7 , 
               child: const Hero(
