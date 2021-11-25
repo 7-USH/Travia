@@ -1,7 +1,9 @@
+//flutter run --no-sound-null-safety
 // ignore_for_file: prefer_const_constructors
 // ignore: unused_import
 import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/Screens/favourites_screen.dart';
+import 'package:final_project/Screens/google_map.dart';
 import 'package:final_project/Screens/illustration_screen.dart';
 import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),
           FavouriteScreen.id:(context)=>FavouriteScreen(),
+          GoogleScreen.id:(context)=>GoogleScreen()
         },
       ),
     );

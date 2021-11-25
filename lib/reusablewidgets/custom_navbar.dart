@@ -1,4 +1,5 @@
 import 'package:final_project/Screens/favourites_screen.dart';
+import 'package:final_project/Screens/google_map.dart';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             buildNewSingleNavbar(icon:Icons.travel_explore, label:2,
             onTap: (){
               
-              // TODO : show fav list
+              Navigator.pushNamed(context, GoogleScreen.id);
 
             }),
             buildNewSingleNavbar(icon:Icons.settings_outlined,label: 3,
