@@ -28,7 +28,6 @@ class DestinationPage extends StatefulWidget {
 }
 
 class _DestinationPageState extends State<DestinationPage> {
-  
   @override
   Widget build(BuildContext context) {
     String rate = widget.rating;
@@ -82,7 +81,7 @@ class _DestinationPageState extends State<DestinationPage> {
                         padding: EdgeInsets.only(top: 40, right: 30),
                         child: GestureDetector(
                           onTap: () {
-                            // add to favourites button
+                            //TODO:add to favourites button
                           },
                           child: Container(
                             height: 40,
@@ -107,10 +106,9 @@ class _DestinationPageState extends State<DestinationPage> {
                     widget.title,
                     style: kImageText,
                   ).shimmer(
-                    primaryColor:Colors.white,
-                    secondaryColor: Colors.grey,
-                    duration: const Duration(seconds: 2)
-                  ),
+                      primaryColor: Colors.white,
+                      secondaryColor: Colors.grey,
+                      duration: const Duration(seconds: 2)),
                 ),
                 Padding(
                   padding: EdgeInsets.only(
@@ -120,22 +118,20 @@ class _DestinationPageState extends State<DestinationPage> {
                     children: [
                       Row(
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              // gives location
-                            },
-                            child: Container(
-                              height: size.height / 12,
-                              width: size.width / 6,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white,
-                                  boxShadow: kBoxShadows),
-                              child: Icon(
-                                Icons.place_sharp,
-                                color: Color(0xFFCE6730),
-                                size: 40,
-                              ),
+                          Container(
+                            height: size.height / 12,
+                            width: size.width / 6,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.white,
+                                boxShadow: kBoxShadows),
+                            child: IconButton(
+                              onPressed: () {
+                                // TODO : give location of current place
+                              },
+                              icon: Icon(Icons.place_sharp),
+                              color: Color(0xFFCE6730),
+                              iconSize: 40,
                             ),
                           ),
                           SizedBox(

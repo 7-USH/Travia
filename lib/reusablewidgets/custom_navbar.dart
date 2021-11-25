@@ -40,10 +40,14 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
             buildNewSingleNavbar(icon:Icons.travel_explore, label:2,
             onTap: (){
+              
+              // TODO : show fav list
 
             }),
             buildNewSingleNavbar(icon:Icons.settings_outlined,label: 3,
             onTap: (){
+
+              // TODO : show settings 
 
             }),
           ],

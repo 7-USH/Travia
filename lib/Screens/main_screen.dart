@@ -45,7 +45,11 @@ class _MainScreenState extends State<MainScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 15),
                       child: CircleBackground(
-                        onPressed: () {},
+                        onPressed: () {
+
+                          // TODO:show profile
+
+                        },
                         widget: Icon(
                           Icons.person,
                           color: Color(0xFFCE6730),

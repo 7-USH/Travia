@@ -66,6 +66,8 @@ class _MyTextFieldState extends State<MyTextField> {
           child: CircleBackground(
             onPressed: (){
               
+              // TODO: search and sort places
+
             },
             widget: Icon(Icons.search),
             height1: 50,
