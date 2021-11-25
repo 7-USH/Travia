@@ -1,4 +1,5 @@
 import 'package:final_project/Screens/favourites_screen.dart';
+import 'package:final_project/Screens/google_map.dart';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -33,30 +34,32 @@ class _CustomNavBarState extends State<CustomNavBar> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            buildNewSingleNavbar(icon:Icons.home_outlined,label:0,
-            onTap: (){}),
-            buildNewSingleNavbar(icon:Icons.favorite_outline, label:1, 
-            onTap: ()=>Navigator.pushNamed(context, FavouriteScreen.id)),
-
-            buildNewSingleNavbar(icon:Icons.travel_explore, label:2,
-            onTap: (){
-              
-              // TODO : show map
-
-            }),
-            buildNewSingleNavbar(icon:Icons.settings_outlined,label: 3,
-            onTap: (){
-
-              // TODO : show settings 
-
-            }),
+            buildNewSingleNavbar(
+                icon: Icons.home_outlined, label: 0, onTap: () {}),
+            buildNewSingleNavbar(
+                icon: Icons.favorite_outline,
+                label: 1,
+                onTap: () => Navigator.pushNamed(context, FavouriteScreen.id)),
+            buildNewSingleNavbar(
+                icon: Icons.travel_explore,
+                label: 2,
+                onTap: () {
+                  Navigator.pushNamed(context, GoogleScreen.id);
+                }),
+            buildNewSingleNavbar(
+                icon: Icons.settings_outlined,
+                label: 3,
+                onTap: () {
+                  // TODO : show settings
+                }),
           ],
         ),
       ),
     );
   }
 
-  Widget buildNewSingleNavbar({required IconData icon, required int label, required Function onTap}) {
+  Widget buildNewSingleNavbar(
+      {required IconData icon, required int label, required Function onTap}) {
     return GestureDetector(
       onTap: () {
         setState(() {

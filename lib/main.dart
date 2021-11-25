@@ -2,6 +2,7 @@
 // ignore: unused_import
 import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/Screens/favourites_screen.dart';
+import 'package:final_project/Screens/google_map.dart';
 import 'package:final_project/Screens/illustration_screen.dart';
 import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
@@ -15,6 +16,7 @@ import 'package:provider/provider.dart';
 void main() async {
   runApp(MyApp());
   await Firebase.initializeApp();
+  
 }
 
 // ignore: use_key_in_widget_constructors
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),
           FavouriteScreen.id:(context)=>FavouriteScreen(),
+          GoogleScreen.id : (context)=>GoogleScreen(),
         },
       ),
     );
