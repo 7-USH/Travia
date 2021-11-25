@@ -18,12 +18,12 @@ class _LoginButtonState extends State<LoginButton> {
 
   @override
   Widget build(BuildContext context) {
-   
     return Material(
       color: Colors.transparent,
       child: GestureDetector(
         onTap: () {
-          UserInfoClass(userType: UserType.newUser).showHalfPage(context,"New User!");
+          UserInfoClass(userType: UserType.newUser)
+              .showHalfPage(context, "New User!");
         },
         onTapDown: (TapDownDetails details) {
           setState(() {

@@ -41,7 +41,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
             buildNewSingleNavbar(icon:Icons.travel_explore, label:2,
             onTap: (){
               
-              // TODO : show fav list
+              // TODO : show map
 
             }),
             buildNewSingleNavbar(icon:Icons.settings_outlined,label: 3,

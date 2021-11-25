@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'package:final_project/constants.dart';
+import 'package:final_project/reusablewidgets/bookbutton.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_icons/flutter_icons.dart';
@@ -33,6 +34,8 @@ class _DestinationPageState extends State<DestinationPage> {
     String rate = widget.rating;
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      floatingActionButton: BookButton(text: "BOOK",),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       backgroundColor: Colors.white.withOpacity(0.95),
       body: ListView(
           padding: EdgeInsets.only(bottom: 100),
@@ -196,7 +199,7 @@ class _DestinationPageState extends State<DestinationPage> {
                       )
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ]),
