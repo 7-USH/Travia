@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),
           FavouriteScreen.id:(context)=>FavouriteScreen(),
-          GoogleScreen.id : (context)=>GoogleScreen(),
+          GoogleScreen.id : (context) => GoogleScreen(),
         },
       ),
     );

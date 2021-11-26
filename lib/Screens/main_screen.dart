@@ -24,6 +24,12 @@ class _MainScreenState extends State<MainScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
+  void initState() {
+    super.initState();
+    FirestorInfo.dataStream();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
@@ -46,9 +52,7 @@ class _MainScreenState extends State<MainScreen> {
                       padding: const EdgeInsets.only(left: 15),
                       child: CircleBackground(
                         onPressed: () {
-
                           // TODO:show profile
-
                         },
                         widget: Icon(
                           Icons.person,
@@ -153,11 +157,12 @@ class MyListView extends StatelessWidget {
                   Map<String, dynamic> data =
                       document.data()! as Map<String, dynamic>;
                   return ListCard(
-                      imageUrl: data['imageUrl'].toString(),
-                      title: data['title'].toString(),
-                      subtitle: data['subTitle'].toString(), 
-                      about: data['about'].toString(), 
-                      rating: data['rating'].toString(),);
+                    imageUrl: data['imageUrl'].toString(),
+                    title: data['title'].toString(),
+                    subtitle: data['subTitle'].toString(),
+                    about: data['about'].toString(),
+                    rating: data['rating'].toString(),
+                  );
                 }).toList(),
               );
             }
