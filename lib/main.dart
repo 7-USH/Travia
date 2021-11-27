@@ -1,14 +1,16 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 // ignore: unused_import
 import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/Screens/favourites_screen.dart';
+import 'package:final_project/Screens/flash_screen.dart';
 import 'package:final_project/Screens/google_map.dart';
-import 'package:final_project/Screens/illustration_screen.dart';
 import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
+import 'package:final_project/Screens/onboarding.dart';
 import 'package:final_project/Screens/signin_screen.dart';
 import 'package:final_project/constants.dart';
 import 'package:final_project/provider/data.dart';
+import 'package:final_project/services/onboardmodel.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,9 +30,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: kBackgroundTheme,
         debugShowCheckedModeBanner: false,
-        initialRoute: ConcentricTransistion.id,
+        initialRoute:FlashScreen.id,
         routes: {
-          ConcentricTransistion.id:(context)=>ConcentricTransistion(),
+          FlashScreen.id:(context)=> FlashScreen(nextPage: OnBoardingScreen(),duration: 3,),
+          OnBoardingScreen.id : (context) =>OnBoardingScreen(),
           LoginScreen.id: (context) => LoginScreen(),
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),

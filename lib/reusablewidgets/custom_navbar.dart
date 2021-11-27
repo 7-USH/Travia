@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_typing_uninitialized_variables
+// ignore_for_file: prefer_typing_uninitialized_variables, unused_import, unused_local_variable, import_of_legacy_library_into_null_safe
+
 
 import 'package:final_project/Screens/favourites_screen.dart';
 import 'package:final_project/Screens/google_map.dart';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({Key? key}) : super(key: key);
@@ -17,21 +18,12 @@ class _CustomNavBarState extends State<CustomNavBar> {
   Color selectedBackgroundColor = Colors.white.withOpacity(0.2);
   Color simpleColor = Colors.black;
   Color effectColor = const Color(0xFFCE6730);
-  var lat;
-  var long;
-
-  void getCurrentLocation() async {
-    var position = await Geolocator()
-        .getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
-    lat = position.latitude;
-    long = position.longitude;
-  }
+  
 
   late int _selectedIndex;
   @override
   void initState() {
     super.initState();
-    getCurrentLocation();
     _selectedIndex = 0;
   }
 
@@ -48,12 +40,14 @@ class _CustomNavBarState extends State<CustomNavBar> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             buildNewSingleNavbar(
-                icon: Icons.home_outlined, label: 0, onTap: () {}),
+                icon: Icons.home_outlined, label: 0, onTap: () {
+                  //Home button
+                }),
             buildNewSingleNavbar(
                 icon: Icons.favorite_outline,
                 label: 1,
                 onTap: () {
-                  
+                  Navigator.pushNamed(context,FavouriteScreen.id);
                 }),
             buildNewSingleNavbar(
                 icon: Icons.travel_explore,

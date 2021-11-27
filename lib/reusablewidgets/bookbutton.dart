@@ -8,7 +8,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class BookButton extends StatefulWidget {
   String text;
-  BookButton({Key? key, required this.text}) : super(key: key);
+  BookButton({Key? key, required this.text})
+      : super(key: key);
 
   @override
   State<BookButton> createState() => _BookButtonState();
@@ -28,13 +29,11 @@ class _BookButtonState extends State<BookButton> {
             borderRadius: BorderRadius.circular(20),
           ),
           child: Center(
-            child: Text("Under Development !",
-                style: GoogleFonts.belgrano(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold
-                ))
-          ),
+              child: Text("Under Development !",
+                  style: GoogleFonts.belgrano(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold))),
         ));
 
     showDialog(
@@ -63,10 +62,7 @@ class _BookButtonState extends State<BookButton> {
           ]),
         ),
         GestureDetector(
-          onTap: () {
-            //
-            testAlert(context);
-          },
+          onTap: () => testAlert(context),
           onTapDown: (TapDownDetails details) {
             setState(() {
               buttonColor = Colors.orangeAccent.shade700;
@@ -101,4 +97,29 @@ class _BookButtonState extends State<BookButton> {
       ]),
     );
   }
+}
+
+void testAlert(BuildContext context) {
+  var alert = Dialog(
+      backgroundColor: Colors.transparent,
+      child: Container(
+        height: MediaQuery.of(context).size.height / 10,
+        width: MediaQuery.of(context).size.width / 3,
+        decoration: BoxDecoration(
+          color: Color(0xFFCE6730),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Center(
+            child: Text("Under Development !",
+                style: GoogleFonts.belgrano(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold))),
+      ));
+
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      });
 }

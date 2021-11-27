@@ -52,7 +52,6 @@ class _MainScreenState extends State<MainScreen> {
                       padding: const EdgeInsets.only(left: 15),
                       child: CircleBackground(
                         onPressed: () {
-                          // TODO:show profile
                         },
                         widget: Icon(
                           Icons.person,
@@ -170,3 +169,5 @@ class MyListView extends StatelessWidget {
     );
   }
 }
+
+

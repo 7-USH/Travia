@@ -134,3 +134,9 @@ final TextStyle kImageText = GoogleFonts.notoSerif(
 
 final TextStyle kBlackBoldSmallText = GoogleFonts.belgrano(
     color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold);
+
+final TextStyle smallwelcomeText = GoogleFonts.pacifico(
+  fontSize: 20,
+  color: Colors.grey.shade700,
+);
+

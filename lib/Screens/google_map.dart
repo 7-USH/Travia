@@ -1,15 +1,13 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_final_fields, unused_element, unused_local_variable, prefer_typing_uninitialized_variables, must_be_immutable
+// ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_final_fields, unused_element, unused_local_variable, prefer_typing_uninitialized_variables, must_be_immutable, prefer_collection_literals, unused_field, avoid_function_literals_in_foreach_calls
 import 'package:final_project/constants.dart';
-import 'package:final_project/provider/data.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:provider/provider.dart';
+
 
 class GoogleScreen extends StatefulWidget {
   static String id = "googlemap";
   GoogleScreen({Key? key}) : super(key: key);
-  
+
   @override
   _GoogleScreenState createState() => _GoogleScreenState();
 }
@@ -17,6 +15,8 @@ class GoogleScreen extends StatefulWidget {
 class _GoogleScreenState extends State<GoogleScreen> {
   Set<Marker> _markers = {};
   late BitmapDescriptor mapMarker;
+  
+  String apiKey = "AIzaSyBky7ng4jQQPBk5OlH8EiMDURaxseThQw4";
 
   void setCustomMarker() async {
     mapMarker = await BitmapDescriptor.fromAssetImage(
@@ -26,7 +26,9 @@ class _GoogleScreenState extends State<GoogleScreen> {
   @override
   void initState() {
     super.initState();
+
     setCustomMarker();
+    // setCustomMarker();
   }
 
   void _onMapCreation(GoogleMapController controller) {
@@ -43,6 +45,13 @@ class _GoogleScreenState extends State<GoogleScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
+    CameraPosition initialCameraPosition = CameraPosition(
+      target: LatLng(27.1751, 78.0421) ,
+      zoom: 15,
+      tilt: 80,
+      bearing: 30,
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(children: [
@@ -58,13 +67,9 @@ class _GoogleScreenState extends State<GoogleScreen> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: GoogleMap(
-                myLocationEnabled: true,
                 onMapCreated: _onMapCreation,
                 markers: _markers,
-                initialCameraPosition: CameraPosition(
-                  target: LatLng(27.1751, 78.0421),
-                  zoom: 15,
-                ),
+                initialCameraPosition: initialCameraPosition,
               ),
             ),
           ),

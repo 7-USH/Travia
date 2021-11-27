@@ -4,6 +4,7 @@ import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:concentric_transition/concentric_transition.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class ConcentricTransistion extends StatefulWidget {
   static String id = "concentricTransistion";
@@ -68,6 +69,10 @@ class _ConcentricTransistionState extends State<ConcentricTransistion> {
                         child: Text(
                           "Skip",
                           style: kHeadingText,
+                        ).shimmer(
+                          primaryColor: Colors.white,
+                          secondaryColor: Colors.grey,
+                          duration: const Duration(seconds:2)
                         ),
                       )),
                 )

@@ -5,6 +5,7 @@ import 'package:final_project/reusablewidgets/bookbutton.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 // ignore: unused_import
 
@@ -29,12 +30,13 @@ class DestinationPage extends StatefulWidget {
 }
 
 class _DestinationPageState extends State<DestinationPage> {
+
   @override
   Widget build(BuildContext context) {
     String rate = widget.rating;
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      floatingActionButton: BookButton(text: "BOOK",),
+      floatingActionButton: BookButton(text: "BOOK"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       backgroundColor: Colors.white.withOpacity(0.95),
       body: ListView(
@@ -130,6 +132,7 @@ class _DestinationPageState extends State<DestinationPage> {
                                 boxShadow: kBoxShadows),
                             child: IconButton(
                               onPressed: () {
+                                
                                 // TODO : give location of current place
                               },
                               icon: Icon(Icons.place_sharp),
