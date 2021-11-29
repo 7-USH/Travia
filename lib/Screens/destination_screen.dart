@@ -5,7 +5,6 @@ import 'package:final_project/reusablewidgets/bookbutton.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
 // ignore: unused_import
 

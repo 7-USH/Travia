@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, unused_field
+// ignore_for_file: prefer_const_constructors_in_immutables, unused_field, prefer_const_constructors
 
 import 'package:final_project/accessories/onboardbutton.dart';
 import 'package:final_project/constants.dart';

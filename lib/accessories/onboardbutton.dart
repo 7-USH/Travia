@@ -8,7 +8,7 @@ import 'package:velocity_x/velocity_x.dart';
 // ignore: use_key_in_widget_constructors, must_be_immutable
 class OnBoardButton extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
-  OnBoardButton({required this.message});
+  const OnBoardButton({required this.message});
   final String message;
   @override
   Widget build(BuildContext context) {
