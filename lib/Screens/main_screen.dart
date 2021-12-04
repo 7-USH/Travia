@@ -161,6 +161,8 @@ class MyListView extends StatelessWidget {
                     subtitle: data['subTitle'].toString(),
                     about: data['about'].toString(),
                     rating: data['rating'].toString(),
+                    latitude: data['latitude'],
+                    longitude: data['longitude'],
                   );
                 }).toList(),
               );

@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class ListCard extends StatelessWidget {
   ListCard(
       {Key? key,
+      required this.latitude,
+      required this.longitude,
       required this.rating,
       required this.about,
       required this.imageUrl,
@@ -20,6 +22,8 @@ class ListCard extends StatelessWidget {
   String subtitle;
   String about;
   String rating;
+  double latitude;
+  double longitude;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +33,8 @@ class ListCard extends StatelessWidget {
         child: GestureDetector(
           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) {
             return DestinationPage(
+              latitude: latitude,
+              longitude: longitude,
               about: about,
               rating: rating,
               title: title,

@@ -1,10 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
+import 'package:final_project/Screens/google_map.dart';
 import 'package:final_project/constants.dart';
+import 'package:final_project/provider/data.dart';
 import 'package:final_project/reusablewidgets/bookbutton.dart';
+import 'package:final_project/services/location.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:location/location.dart';
+import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 // ignore: unused_import
 
@@ -12,6 +17,8 @@ import 'package:velocity_x/velocity_x.dart';
 class DestinationPage extends StatefulWidget {
   DestinationPage(
       {Key? key,
+      required this.latitude,
+      required this.longitude,
       required this.child,
       required this.about,
       required this.rating,
@@ -23,12 +30,29 @@ class DestinationPage extends StatefulWidget {
   String about;
   String rating;
   String title;
+  double latitude;
+  double longitude;
 
   @override
   _DestinationPageState createState() => _DestinationPageState();
 }
 
 class _DestinationPageState extends State<DestinationPage> {
+  double latitude = 0;
+  double longitude = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    getLocation();
+  }
+
+  void getLocation() async {
+    MyLocation location = MyLocation();
+    await location.getCurrentLocation();
+    latitude = await location.getLatitude();
+    longitude = await location.getLongitude();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,8 +155,18 @@ class _DestinationPageState extends State<DestinationPage> {
                                 boxShadow: kBoxShadows),
                             child: IconButton(
                               onPressed: () {
-                                
                                 // TODO : give location of current place
+
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return GoogleScreen(
+                                    desLat: widget.latitude,
+                                    desLon: widget.longitude,
+                                    place: widget.title,
+                                    souLat: latitude,
+                                    souLon: longitude,
+                                  );
+                                }));
                               },
                               icon: Icon(Icons.place_sharp),
                               color: Color(0xFFCE6730),
@@ -161,7 +195,7 @@ class _DestinationPageState extends State<DestinationPage> {
                                 color: Colors.white,
                                 boxShadow: kBoxShadows),
                             child: Icon(
-                              FontAwesome5.star,
+                              FontAwesomeIcons.star,
                               color: Color(0xFFCE6730),
                               size: 30,
                             ),

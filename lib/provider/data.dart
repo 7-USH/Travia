@@ -6,4 +6,19 @@ class Data extends ChangeNotifier {
   bool isChanged = false;
   final emailtextController = TextEditingController();
   final passtextController = TextEditingController();
+
+  double latitude = 0;
+  double longitude = 0;
+
+  getLatitudeLongitude(lat, long) {
+    latitude = lat;
+    longitude = long;
+    notifyListeners();
+  }
+
+  show() {
+    print(latitude);
+    print(longitude);
+    notifyListeners();
+  }
 }
