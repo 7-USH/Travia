@@ -76,6 +76,7 @@ class _GoogleScreenState extends State<GoogleScreen> {
     String place = widget.place;
 
     return Scaffold(
+      backgroundColor: Colors.white.withOpacity(0.95),
       body: Stack(alignment: AlignmentDirectional.topCenter, children: [
         GoogleMap(
           polylines: _polylines,

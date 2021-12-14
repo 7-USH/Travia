@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, avoid_print, unnecessary_null_comparison
 
+import 'package:final_project/Screens/colorloader.dart';
 import 'package:final_project/Screens/flash_screen.dart';
 import 'package:final_project/Screens/google_map.dart';
 import 'package:final_project/Screens/loaderscreen.dart';
@@ -69,7 +70,7 @@ class _DestinationPageState extends State<DestinationPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       backgroundColor: Colors.white.withOpacity(0.95),
       body: latitude == 0
-          ? LoaderScreen()
+          ? ColorLoader3()
           : ListView(
               padding: EdgeInsets.only(bottom: 100),
               shrinkWrap: true,
