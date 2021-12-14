@@ -29,6 +29,8 @@ class _MainScreenState extends State<MainScreen> {
     FirestorInfo.dataStream();
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

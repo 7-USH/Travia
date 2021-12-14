@@ -20,10 +20,10 @@ class GoogleScreen extends StatefulWidget {
   GoogleScreen(
       {Key? key,
       required this.place,
-      required this.souLat,
-      required this.souLon,
-      this.desLat = 27.1751,
-      this.desLon = 78.0421})
+     this.souLat=0.0,
+     this.souLon=0.0,
+      required this.desLat,
+      required this.desLon})
       : super(key: key);
 
   @override
@@ -58,6 +58,8 @@ class _GoogleScreenState extends State<GoogleScreen> {
     super.initState();
     polylinePoints = PolylinePoints();
     setCustomMarker();
+    print(widget.souLat);
+    print(widget.souLon);
   }
 
   @override

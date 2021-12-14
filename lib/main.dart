@@ -17,14 +17,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
   await Firebase.initializeApp();
-
 }
 
 // ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -34,12 +33,15 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: FlashScreen.id,
         routes: {
-          FlashScreen.id:(context)=> FlashScreen(nextPage: OnBoardingScreen(),duration: 3,),
-          OnBoardingScreen.id : (context) =>OnBoardingScreen(),
+          FlashScreen.id: (context) => FlashScreen(
+                nextPage: OnBoardingScreen(),
+                duration: 3,
+              ),
+          OnBoardingScreen.id: (context) => OnBoardingScreen(),
           LoginScreen.id: (context) => LoginScreen(),
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),
-          FavouriteScreen.id:(context)=>FavouriteScreen(),
+          FavouriteScreen.id: (context) => FavouriteScreen(),
         },
       ),
     );

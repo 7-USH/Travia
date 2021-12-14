@@ -14,12 +14,12 @@ Widget myAnimeText() {
       child: AnimatedTextKit(
         pause: const Duration(milliseconds: 500),
         animatedTexts: [
+           ScaleAnimatedText('Eat'),
+          ScaleAnimatedText('Sleep'),
           ScaleAnimatedText('Work'),
           ScaleAnimatedText('Travel'),
           ScaleAnimatedText('Save'),
           ScaleAnimatedText('Enjoy'),
-          ScaleAnimatedText('Eat'),
-          ScaleAnimatedText('Sleep'),
           ScaleAnimatedText('Repeat'),
         ],
         onTap: () {

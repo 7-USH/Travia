@@ -54,7 +54,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                 label: 2,
                 onTap: () {
                   setState(() {
-                    Navigator.pushNamed(context, GoogleScreen.id);
+                    //TODO: map screen
                   });
                 }),
             buildNewSingleNavbar(

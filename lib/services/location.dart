@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:final_project/provider/data.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
@@ -9,12 +11,13 @@ class MyLocation {
   Future<void> getCurrentLocation() async {
     try {
       Position position = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.low);
+          desiredAccuracy: LocationAccuracy.best);
       latitude = position.latitude;
       longitude = position.longitude;
       // print(latitude);
     } catch (e) {
       print(e);
+      print("Tushar");
     }
   }
 
@@ -27,7 +30,7 @@ class MyLocation {
     return 0;
   }
 
-   Future<double> getLongitude() async {
+  Future<double> getLongitude() async {
     try {
       return longitude;
     } catch (e) {
