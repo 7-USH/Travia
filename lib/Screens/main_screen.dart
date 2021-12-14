@@ -153,6 +153,7 @@ class MyListView extends StatelessWidget {
               );
             } else {
               return ListView(
+                physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 children: snapshot.data!.docs.map((DocumentSnapshot document) {
                   Map<String, dynamic> data =
