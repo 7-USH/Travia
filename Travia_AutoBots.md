@@ -2,7 +2,7 @@
 
 ___
 
-<p align = "center" ><img  align =" center" src="https://user-images.githubusercontent.com/82898989/146208393-ac4b0f38-ca54-49ec-878b-f664fc04d91e.gif" /></p>
+<p align = "center" ><img  align =" center" src="https://user-images.githubusercontent.com/82898989/146215359-6a939883-5812-424b-b45a-6bc5ac907979.gif" /></p>
 
 ___
 
@@ -64,6 +64,9 @@ about the destination such as :
  - Scheduling itinerary with respect to time and date.
 
 ## :camera: Screenshots
+
+### Onboarding Screens
+
 
 
 
