@@ -47,9 +47,9 @@ about the destination such as :
 >Being new to the place can be very tiring as we do not have any idea of the place around us. Thus Travia app will provide the location of the desired destination with the help of google maps and also user's current location. Getting details about the destination is feasible while using Travia App, also maintaing the authentication of the user is our prime task. This app covers some of the famous tourist places in India while providing the location of the selected place.
 
 ## Future scope
- - Getting Weather Details
- - Booking of tickets
- - Scheduling itinerary
+ - Getting Weather Details by constructing Weather Models
+ - Booking of tickets using External api
+ - Scheduling itinerary with respect to time and date.
 
 ## Screenshots
 
