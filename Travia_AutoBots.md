@@ -1,9 +1,16 @@
-<h1 align="center">Travia</h1>
-![github gif](https://user-images.githubusercontent.com/82898989/146204369-333e5842-8e7e-483f-b099-1d6489a52fda.mp4)
+# [Travia](https://github.com/7-USH/Travia)
+
+___
+
+<p align = "center" ><img  align =" center" src="https://user-images.githubusercontent.com/82898989/146205077-eb681be5-ac11-4669-91da-7f453d920f31.gif" /></p>
+
+___
+
 
 >**Team name** : AutoBots
 
-## Team members
+
+## :boy: Team members
  [**Tushar Mali**](https://github.com/7-USH) - **tush1245@gmail.com**
  
  [**Nirbhay Hanjura**](https://github.com/botnirbhay) - **hanjuranirbhay@gmail.com**
