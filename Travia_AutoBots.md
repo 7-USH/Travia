@@ -1,4 +1,5 @@
-# Travia
+<h1 align="center">Travia</h1>
+![github gif](https://user-images.githubusercontent.com/82898989/146204369-333e5842-8e7e-483f-b099-1d6489a52fda.mp4)
 
 >**Team name** : AutoBots
 
