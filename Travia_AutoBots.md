@@ -99,7 +99,7 @@ ____
   <img src="https://user-images.githubusercontent.com/82898989/146218027-07312869-209e-4569-a85f-1ff932cd91d6.png" width="300" title="hover text">
 </p>
 
-### Destination Location Page
+### Location 
 
 ____
 
