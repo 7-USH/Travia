@@ -28,6 +28,7 @@ about the destination such as :
 - Mobile Application development using [**Flutter**](https://flutter.dev/docs) and [**Android Studio**](https://developer.android.com/studio)
 - Back-end development using [**Firebase**](https://firebase.google.com/)
 
+![Dart](https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg)&nbsp;&nbsp;&nbsp;![Firebase]( https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg) ![Flutter](https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg)
 
 ## Progress
 - [x] Login
