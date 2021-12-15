@@ -27,6 +27,7 @@ about the destination such as :
 - Front-end development using [**Dart**](https://dart.dev/)
 - Mobile Application development using [**Flutter**](https://flutter.dev/docs) and [**Android Studio**](https://developer.android.com/studio)
 - Back-end development using [**Firebase**](https://firebase.google.com/)
+- Google Map, Directions Api using [**Google Cloud Platoform**](https://console.cloud.google.com/)
 
 ![Dart](https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg)&nbsp;&nbsp;&nbsp;![Firebase]( https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg) ![Flutter](https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg)
 
