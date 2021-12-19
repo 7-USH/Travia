@@ -3,6 +3,12 @@
 ___
 
 <p align = "center" ><img  align =" center" src="https://user-images.githubusercontent.com/82898989/146215359-6a939883-5812-424b-b45a-6bc5ac907979.gif" /></p>
+<p align="center">
+ <img src="https://img.shields.io/github/stars/7-USH/Travia"  title="hover text">
+ &nbsp;&nbsp;
+  <img src="https://img.shields.io/github/contributors-anon/7-USH/Travia"  title="hover text">
+&nbsp;&nbsp;&nbsp;&nbsp; 
+</p>
 
 ___
 
