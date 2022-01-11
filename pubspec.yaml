@@ -1,6 +1,6 @@
 name: final_project
 description: A new Flutter project.
-
+#flutter run --no-sound-null-safety
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -46,6 +47,8 @@ dependencies:
   concentric_transition: ^1.0.1+1
   shimmer: ^2.0.0
   google_maps_flutter: ^2.1.1
+  flutter_svg: ^1.0.0
+  http: ^0.13.4
 
 
 dev_dependencies:

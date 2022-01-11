@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:final_project/accessories/circular_background.dart';
 import 'package:final_project/constants.dart';
+import 'package:final_project/services/dataservices.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -12,6 +13,9 @@ class MyTextField extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<MyTextField> {
+  // ignore: non_constant_identifier_names
+  String tush="";
+  
 
   String getPlace(String value) {
     setState(() {
@@ -20,11 +24,14 @@ class _MyTextFieldState extends State<MyTextField> {
     });
     return value;
   }
+  final _citycontrol=TextEditingController();
+  final _dataService=dataservice();
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    
+    
     return Stack(children: [
       Container(
         decoration: BoxDecoration(
@@ -45,8 +52,9 @@ class _MyTextFieldState extends State<MyTextField> {
         width: size.width / 1.16,
         height: 50,
         child: TextField(
+          //controller: _citycontrol,
           onChanged: (String value) {
-            getPlace(value);
+            tush=getPlace(value);
           },
           cursorColor: Colors.grey.shade700,
           style: kMainTextField,
@@ -65,7 +73,8 @@ class _MyTextFieldState extends State<MyTextField> {
           left: size.width / 1.36,
           child: CircleBackground(
             onPressed: (){
-              
+              print("gvgvgvvg");
+              _dataService.getWeather(_citycontrol.text);
               // TODO: search and sort places
 
             },
@@ -76,5 +85,8 @@ class _MyTextFieldState extends State<MyTextField> {
             width2: 40,
           ))
     ]);
+    
   }
+
+
 }
