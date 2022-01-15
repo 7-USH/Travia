@@ -49,6 +49,7 @@ dependencies:
   location: ^4.3.0
   flutter_polyline_points: ^1.0.0
   geolocator: ^8.0.0
+  flutter_secure_storage: ^5.0.2
 
 
 dev_dependencies:

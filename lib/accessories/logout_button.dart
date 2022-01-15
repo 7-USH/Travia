@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:final_project/Screens/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,7 @@ class _LogOutBackgroundState extends State<LogOutBackground> {
       GestureDetector(
         onTap: () {
           widget.auth.signOut();
-          Navigator.pop(context);
+          Navigator.pushNamed(context,LoginScreen.id);
         },
         onTapDown: (TapDownDetails details) {
           setState(() {

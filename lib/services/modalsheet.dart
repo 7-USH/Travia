@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
+
 import 'package:final_project/Screens/main_screen.dart';
 import 'package:final_project/accessories/continue_button.dart';
 import 'package:final_project/constants.dart';
 import 'package:final_project/provider/data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
 
 
@@ -22,6 +24,8 @@ class UserInfoClass {
 
   late String email = tush1.getInfo;
   late String password = tush2.getInfo;
+  final storage=FlutterSecureStorage();
+
 
   void showHalfPage(BuildContext context, String text) {
     showBottomSheet(
@@ -72,8 +76,11 @@ class UserInfoClass {
                       print(email);
                       print(password);
                       try {
-                        final newUser = await _auth.signInWithEmailAndPassword(
+                        UserCredential newUser = await _auth.signInWithEmailAndPassword(
                             email: email, password: password);
+                            //print(newUser.user?.uid);
+                            await storage.write(key:"uid", value:newUser.user?.uid );
+
                       
                         // ignore: unnecessary_null_comparison
                         if (newUser != null) {
