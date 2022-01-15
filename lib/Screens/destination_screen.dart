@@ -46,12 +46,13 @@ class _DestinationPageState extends State<DestinationPage> {
   late double latitude = 0;
   late double longitude = 0;
   WeatherApiClient client=WeatherApiClient();
-  Weather? data;
+  late Weather? data;
 
   @override
   void initState() {
     super.initState();
     getLocation();
+    getData();
     setState(() {});
 
   }
@@ -64,6 +65,7 @@ class _DestinationPageState extends State<DestinationPage> {
     longitude = await location.getLongitude();
     print(longitude);
     setState(() {});
+    
   }
   void getData() async{
     
