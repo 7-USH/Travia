@@ -33,7 +33,7 @@ final TextStyle kButtonText = GoogleFonts.vidaloka(
 Widget kAppLogo(context, Color prime, Color second, double size) {
   final TextStyle kLogoText = GoogleFonts.pacifico(
     fontSize: size,
-    decoration: TextDecoration.overline,
+    decoration: TextDecoration.none,
     decorationThickness: 0.0,
   );
 

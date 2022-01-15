@@ -41,8 +41,8 @@ class DestinationPage extends StatefulWidget {
 }
 
 class _DestinationPageState extends State<DestinationPage> {
-  late double latitude = 0;
-  late double longitude = 0;
+   late double latitude =0  ;
+   late double longitude =0 ;
 
   @override
   void initState() {

@@ -29,8 +29,6 @@ class _MainScreenState extends State<MainScreen> {
     FirestorInfo.dataStream();
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -53,8 +51,7 @@ class _MainScreenState extends State<MainScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 15),
                       child: CircleBackground(
-                        onPressed: () {
-                        },
+                        onPressed: () {},
                         widget: Icon(
                           Icons.person,
                           color: Color(0xFFCE6730),
@@ -168,11 +165,9 @@ class MyListView extends StatelessWidget {
                     longitude: data['longitude'],
                   );
                 }).toList(),
-              );
+              );      
             }
           }),
     );
   }
 }
-
-
