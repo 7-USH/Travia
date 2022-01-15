@@ -8,6 +8,8 @@ import 'package:final_project/constants.dart';
 import 'package:final_project/provider/data.dart';
 import 'package:final_project/reusablewidgets/bookbutton.dart';
 import 'package:final_project/services/location.dart';
+import 'package:final_project/services/weather_api_client.dart';
+import 'package:final_project/services/weather_model.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -43,12 +45,15 @@ class DestinationPage extends StatefulWidget {
 class _DestinationPageState extends State<DestinationPage> {
   late double latitude = 0;
   late double longitude = 0;
+  WeatherApiClient client=WeatherApiClient();
+  Weather? data;
 
   @override
   void initState() {
     super.initState();
     getLocation();
     setState(() {});
+
   }
 
   void getLocation() async {
@@ -60,6 +65,13 @@ class _DestinationPageState extends State<DestinationPage> {
     print(longitude);
     setState(() {});
   }
+  void getData() async{
+    
+    data=await client.getCurrentWeather(widget.title);
+    print(data!.temp);
+  }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +149,10 @@ class _DestinationPageState extends State<DestinationPage> {
                               )),
                         ],
                       ),
-                      Padding(
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
                         padding: EdgeInsets.only(
                             top: size.height / 2.04, left: size.width / 9),
                         // ignore: avoid_unnecessary_containers
@@ -149,6 +164,21 @@ class _DestinationPageState extends State<DestinationPage> {
                             secondaryColor: Colors.grey,
                             duration: const Duration(seconds: 2)),
                       ),
+                          Padding(
+                        padding: EdgeInsets.only(
+                            top: size.height / 2.04, left: size.width / 9),
+                        // ignore: avoid_unnecessary_containers
+                        child: Text(
+                          "${data!.temp}°C",
+                          style: kImageText,
+                        ).shimmer(
+                            primaryColor: Colors.white,
+                            secondaryColor: Colors.grey,
+                            duration: const Duration(seconds: 2)),
+                      ),
+                        ],
+                      ),
+                      
                       Padding(
                         padding: EdgeInsets.only(
                             top: size.height / 1.64, left: size.width / 14),
