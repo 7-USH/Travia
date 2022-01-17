@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/Screens/main_screen.dart';
 import 'package:final_project/accessories/continue_button.dart';
 import 'package:final_project/constants.dart';
@@ -8,7 +9,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
-
 
 // ignore: must_be_immutable
 class UserInfoClass {
@@ -21,11 +21,31 @@ class UserInfoClass {
       text: "Enter your password", buttonStyle: buttonType.passwordText);
 
   final _auth = FirebaseAuth.instance;
+  final CollectionReference userData =
+      FirebaseFirestore.instance.collection("Users");
 
   late String email = tush1.getInfo;
   late String password = tush2.getInfo;
-  final storage=FlutterSecureStorage();
+  final storage = FlutterSecureStorage();
+  // final user = FirebaseAuth.instance.currentUser!;
 
+  adduser(String userCode,String? mail) async {
+    bool isPresent = false;
+    await userData.get().then((querySnapshot) {
+      for (var user in querySnapshot.docs) {
+        if (userCode == user.id) {
+          isPresent = true;
+          break;
+        }
+      }
+
+      if (isPresent == false) {
+         userData.doc(userCode).set({
+          "name": mail, 'favs' : []
+        });
+      }
+    });
+  }
 
   void showHalfPage(BuildContext context, String text) {
     showBottomSheet(
@@ -33,10 +53,10 @@ class UserInfoClass {
         builder: (context) {
           return Container(
             color: Colors.white,
-            height: MediaQuery.of(context).size.height /1.59,
+            height: MediaQuery.of(context).size.height / 1.59,
             width: double.infinity,
-            child: ListView(
-              children: [Column(
+            child: ListView(children: [
+              Column(
                 children: [
                   Text(
                     "Welcome $text",
@@ -65,10 +85,14 @@ class UserInfoClass {
                             await _auth.createUserWithEmailAndPassword(
                                 email: email, password: password);
                         // ignore: unnecessary_null_comparison
+
+                        Provider.of<Data>(context, listen: false)
+                            .setUserUid(newUser.user?.uid);
+
                         if (newUser != null) {
-                         Navigator.pushNamed(context, MainScreen.id);
+                          Navigator.pushNamed(context, MainScreen.id);
                         }
-                  
+                        adduser(newUser.user!.uid,newUser.user!.email);
                       } catch (e) {
                         print(e);
                       }
@@ -76,21 +100,29 @@ class UserInfoClass {
                       print(email);
                       print(password);
                       try {
-                        UserCredential newUser = await _auth.signInWithEmailAndPassword(
-                            email: email, password: password);
-                            //print(newUser.user?.uid);
-                            await storage.write(key:"uid", value:newUser.user?.uid );
+                        UserCredential newUser =
+                            await _auth.signInWithEmailAndPassword(
+                                email: email, password: password);
+                        //print(newUser.user?.uid);
+                        await storage.write(
+                            key: "uid", value: newUser.user?.uid);
 
-                      
+                        Provider.of<Data>(context, listen: false)
+                            .setUserUid(newUser.user?.uid);
+
+                        print(Provider.of<Data>(context, listen: false)
+                            .getUserUid());
                         // ignore: unnecessary_null_comparison
                         if (newUser != null) {
                           Navigator.pushNamed(context, MainScreen.id);
                           // Provider.of<Data>(context).fieldText.clear();
                         }
+                        adduser(newUser.user!.uid,newUser.user!.email);
                       } catch (e) {
                         print(e);
                       }
                     }
+                    
                   }),
                   SizedBox(
                     height: 20,
@@ -113,8 +145,7 @@ class UserInfoClass {
                       )),
                 ],
               ),
-              ]
-            ),
+            ]),
           );
         });
   }
@@ -171,8 +202,9 @@ class _UserDataState extends State<UserData> {
             widget.getInfo = value;
           });
         },
-        controller: widget.buttonStyle == buttonType.simpleText ? 
-        Provider.of<Data>(context).emailtextController : Provider.of<Data>(context).passtextController,
+        controller: widget.buttonStyle == buttonType.simpleText
+            ? Provider.of<Data>(context).emailtextController
+            : Provider.of<Data>(context).passtextController,
         cursorColor: Colors.grey.shade400,
         style: kMainTextField,
         decoration: InputDecoration(

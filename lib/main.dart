@@ -10,6 +10,7 @@ import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
 import 'package:final_project/Screens/onboarding.dart';
 import 'package:final_project/Screens/signin_screen.dart';
+import 'package:final_project/accessories/favorite_card.dart';
 import 'package:final_project/constants.dart';
 import 'package:final_project/provider/data.dart';
 import 'package:final_project/services/onboardmodel.dart';
@@ -61,7 +62,6 @@ class MyApp extends StatelessWidget {
 
            },
           ),
-        //initialRoute: FlashScreen.id,
         routes: {
           FlashScreen.id: (context) => FlashScreen(
                 nextPage: OnBoardingScreen(),

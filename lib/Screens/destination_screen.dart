@@ -19,7 +19,6 @@ import 'package:location/location.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-
 // ignore: unused_import
 
 // ignore: must_be_immutable
@@ -32,6 +31,7 @@ class DestinationPage extends StatefulWidget {
       required this.about,
       required this.subtitle,
       required this.rating,
+      this.highlight=false,
       required this.title})
       : super(key: key);
 
@@ -40,6 +40,7 @@ class DestinationPage extends StatefulWidget {
   String about;
   String rating;
   String title;
+  bool highlight;
   double latitude;
   double longitude;
   String subtitle;
@@ -61,8 +62,6 @@ class _DestinationPageState extends State<DestinationPage> {
     getData();
     setState(() {});
   }
-
-  
 
   void getLocation() async {
     MyLocation location = MyLocation();
@@ -150,7 +149,7 @@ class _DestinationPageState extends State<DestinationPage> {
                                       borderRadius: BorderRadius.circular(40)),
                                   child: Icon(
                                     Icons.favorite_outline_outlined,
-                                    color: Colors.white,
+                                    color: widget.highlight? kbackGroundColor : Colors.white,
                                     size: 25,
                                   ),
                                 ),
@@ -179,7 +178,7 @@ class _DestinationPageState extends State<DestinationPage> {
                             Text(
                               widget.title,
                               style: kImageText,
-                              overflow: TextOverflow.clip ,
+                              overflow: TextOverflow.clip,
                             ).shimmer(
                                 primaryColor: Colors.white,
                                 secondaryColor: Colors.grey,
@@ -204,21 +203,19 @@ class _DestinationPageState extends State<DestinationPage> {
                                       boxShadow: kBoxShadows),
                                   child: IconButton(
                                     onPressed: () async {
-                                      
-                                        setState(() {
-                                          Navigator.push(context,
-                                              MaterialPageRoute(
-                                                  builder: (context) {
-                                            return GoogleScreen(
-                                              desLat: widget.latitude,
-                                              desLon: widget.longitude,
-                                              place: widget.title,
-                                              souLat: latitude,
-                                              souLon: longitude,
-                                            );
-                                          }));
-                                        });
-                                      
+                                      setState(() {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return GoogleScreen(
+                                            desLat: widget.latitude,
+                                            desLon: widget.longitude,
+                                            place: widget.title,
+                                            souLat: latitude,
+                                            souLon: longitude,
+                                          );
+                                        }));
+                                      });
                                     },
                                     icon: Icon(Icons.place_sharp),
                                     color: Color(0xFFCE6730),

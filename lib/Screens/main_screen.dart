@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/accessories/circular_background.dart';
 import 'package:final_project/accessories/list_card.dart';
@@ -6,11 +6,14 @@ import 'package:final_project/accessories/logout_button.dart';
 import 'package:final_project/accessories/text_field.dart';
 import 'package:final_project/constants.dart';
 import 'package:final_project/networking/firestore_getinfo.dart';
+import 'package:final_project/provider/data.dart';
 import 'package:final_project/reusablewidgets/change_color_text.dart';
 import 'package:final_project/reusablewidgets/custom_navbar.dart';
 import 'package:final_project/reusablewidgets/tab_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -25,10 +28,34 @@ class _MainScreenState extends State<MainScreen> {
   // ignore: unused_field
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  LocationPermission? permission;
+
+  Future<void> _askPermission() async {
+    bool serviceEnabled;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      permission = await Geolocator.requestPermission();
+    }
+    Provider.of<Data>(context, listen: false)
+        .setUserUid(_auth.currentUser?.uid);
+  }
+
   @override
   void initState() {
     super.initState();
+    _askPermission();
     FirestorInfo.dataStream();
+    
   }
 
   @override
@@ -89,8 +116,8 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 40,
+            SizedBox(
+              height: size.height / 30,
             ),
             Padding(
                 padding: const EdgeInsets.only(left: 25.0),
@@ -108,12 +135,12 @@ class _MainScreenState extends State<MainScreen> {
                     ],
                   ),
                 )),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: size.height / 28,
             ),
             Center(child: MyTextField()),
-            const SizedBox(
-              height: 8,
+            SizedBox(
+              height: size.height / 100,
             ),
             // RowTabWidget(),
             SizedBox(
@@ -142,10 +169,8 @@ class MyListView extends StatefulWidget {
 
 class _MyListViewState extends State<MyListView> {
   final itemController = ItemScrollController();
- 
-  int tappedIndex = 0;
 
-  
+  int tappedIndex = 0;
 
   Future scrollToIndex(int index) async {
     itemController.scrollTo(
@@ -184,12 +209,12 @@ class _MyListViewState extends State<MyListView> {
                           scrollToIndex(0);
                         }
                         if (index == 1) {
-                          scrollToIndex(2);
+                          scrollToIndex(3);
                         }
                         if (index == 2) {
                           scrollToIndex(5);
                         } else {
-                          scrollToIndex(8);
+                          scrollToIndex(10);
                         }
                         setState(() {
                           tappedIndex = index;
