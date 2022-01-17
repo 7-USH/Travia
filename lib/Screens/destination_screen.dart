@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:location/location.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -156,44 +157,35 @@ class _DestinationPageState extends State<DestinationPage> {
                               )),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: size.height / 2.04, left: size.width / 9),
-                            // ignore: avoid_unnecessary_containers
-                            child: SizedBox(
-                              width: size.width*3/6,
-                              child: FittedBox(
-                                child: Text(
-                                  widget.title,
-                                  style: kImageText,
-                                ).shimmer(
-                                    primaryColor: Colors.white,
-                                    secondaryColor: Colors.grey,
-                                    duration: const Duration(seconds: 2)),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: size.height / 2.2, left: size.width / 9),
+                        // ignore: avoid_unnecessary_containers
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              data?.temp == null ? "NA" : "${data?.temp} °C",
+                              style: GoogleFonts.notoSerif(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
                               ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: size.height / 2.04, right: size.width / 9),
-                            // ignore: avoid_unnecessary_containers
-                            child: SizedBox(
-                              width: MediaQuery.of(context).size.width/6,
-                              child: FittedBox(
-                                child: Text(
-                                  data?.temp == null ? "NA" : "${data?.temp} °C",
-                                  style: kImageText,
-                                ).shimmer(
-                                    primaryColor: Colors.white,
-                                    secondaryColor: Colors.grey,
-                                    duration: const Duration(seconds: 2)),
-                              ),
-                            ),
-                          ),
-                        ],
+                              overflow: TextOverflow.clip,
+                            ).shimmer(
+                                primaryColor: Colors.white,
+                                secondaryColor: Colors.grey,
+                                duration: const Duration(seconds: 2)),
+                            Text(
+                              widget.title,
+                              style: kImageText,
+                              overflow: TextOverflow.clip ,
+                            ).shimmer(
+                                primaryColor: Colors.white,
+                                secondaryColor: Colors.grey,
+                                duration: const Duration(seconds: 2)),
+                          ],
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(
