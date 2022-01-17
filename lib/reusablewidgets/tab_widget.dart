@@ -12,7 +12,7 @@ class RowTabWidget extends StatefulWidget {
 
 class _RowTabWidgetState extends State<RowTabWidget> {
   int tappedIndex = 0;
-
+  
   List<String> message = [
     "Most Viewed",
     "Popular",
@@ -37,6 +37,7 @@ class _RowTabWidgetState extends State<RowTabWidget> {
                   shouldColor: false,
                   message: message[index],
                   onTap: () {
+                    print(index);
                     setState(() {
                       tappedIndex = index;
                     });

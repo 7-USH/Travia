@@ -152,7 +152,7 @@ class _HeartIconState extends State<HeartIcon> {
         onPressed: () {
           setState(() {
             oneTap = !oneTap;
-
+        
             // TODO : add to fav ;
           });
         },

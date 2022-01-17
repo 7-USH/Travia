@@ -6,10 +6,12 @@ import 'package:final_project/accessories/logout_button.dart';
 import 'package:final_project/accessories/text_field.dart';
 import 'package:final_project/constants.dart';
 import 'package:final_project/networking/firestore_getinfo.dart';
+import 'package:final_project/reusablewidgets/change_color_text.dart';
 import 'package:final_project/reusablewidgets/custom_navbar.dart';
 import 'package:final_project/reusablewidgets/tab_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 // ignore: use_key_in_widget_constructors
 class MainScreen extends StatefulWidget {
@@ -113,9 +115,9 @@ class _MainScreenState extends State<MainScreen> {
             const SizedBox(
               height: 8,
             ),
-            RowTabWidget(),
+            // RowTabWidget(),
             SizedBox(
-              height: size.height / 50,
+              height: size.height / 100,
             ),
             MyListView(size: size),
             Flexible(child: CustomNavBar())
@@ -126,7 +128,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-class MyListView extends StatelessWidget {
+class MyListView extends StatefulWidget {
   const MyListView({
     Key? key,
     required this.size,
@@ -135,39 +137,110 @@ class MyListView extends StatelessWidget {
   final Size size;
 
   @override
+  State<MyListView> createState() => _MyListViewState();
+}
+
+class _MyListViewState extends State<MyListView> {
+  final itemController = ItemScrollController();
+ 
+  int tappedIndex = 0;
+
+  
+
+  Future scrollToIndex(int index) async {
+    itemController.scrollTo(
+        index: index,
+        duration: Duration(milliseconds: 1000),
+        curve: Curves.easeInOutCubic);
+  }
+
+  List<String> message = [
+    "Most Viewed",
+    "Popular",
+    "Recommended",
+    "Best in Nature"
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent,
-      height: size.height / 3 + 50,
-      child: StreamBuilder<QuerySnapshot>(
-          stream: FirestorInfo.firestore.collection('Destination').snapshots(),
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return Center(
-                child: CircularProgressIndicator(
-                  backgroundColor: Colors.black,
-                ),
-              );
-            } else {
-              return ListView(
-                physics: BouncingScrollPhysics(),
+    final size = widget.size;
+    return Column(
+      children: [
+        Container(
+            height: 60,
+            color: Colors.transparent,
+            child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                  Map<String, dynamic> data =
-                      document.data()! as Map<String, dynamic>;
-                  return ListCard(
-                    imageUrl: data['imageUrl'].toString(),
-                    title: data['title'].toString(),
-                    subtitle: data['subTitle'].toString(),
-                    about: data['about'].toString(),
-                    rating: data['rating'].toString(),
-                    latitude: data['latitude'],
-                    longitude: data['longitude'],
+                itemCount: 4,
+                itemBuilder: (BuildContext context, int index) {
+                  return OnClickTextColorChange(
+                      label: index,
+                      tappedIndex: tappedIndex,
+                      shouldColor: false,
+                      message: message[index],
+                      onTap: () {
+                        print(index);
+                        if (index == 0) {
+                          scrollToIndex(0);
+                        }
+                        if (index == 1) {
+                          scrollToIndex(2);
+                        }
+                        if (index == 2) {
+                          scrollToIndex(5);
+                        } else {
+                          scrollToIndex(8);
+                        }
+                        setState(() {
+                          tappedIndex = index;
+                        });
+                      });
+                })),
+        SizedBox(
+          height: size.height / 50,
+        ),
+        Container(
+          color: Colors.transparent,
+          height: widget.size.height / 3 + 50,
+          child: StreamBuilder<QuerySnapshot>(
+              stream:
+                  FirestorInfo.firestore.collection('Destination').snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.black,
+                    ),
                   );
-                }).toList(),
-              );      
-            }
-          }),
+                } else {
+                  List<Widget> widgets =
+                      snapshot.data!.docs.map((DocumentSnapshot document) {
+                    Map<String, dynamic> data =
+                        document.data()! as Map<String, dynamic>;
+                    return ListCard(
+                      imageUrl: data['imageUrl'].toString(),
+                      title: data['title'].toString(),
+                      subtitle: data['subTitle'].toString(),
+                      about: data['about'].toString(),
+                      rating: data['rating'].toString(),
+                      latitude: data['latitude'],
+                      longitude: data['longitude'],
+                    );
+                  }).toList();
+
+                  return ScrollablePositionedList.builder(
+                    itemCount: widgets.length,
+                    itemScrollController: itemController,
+                    itemBuilder: (context, index) {
+                      return widgets[index];
+                    },
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                  );
+                }
+              }),
+        ),
+      ],
     );
   }
 }
