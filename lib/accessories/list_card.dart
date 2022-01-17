@@ -3,6 +3,7 @@
 import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 // ignore: must_be_immutable
 class ListCard extends StatelessWidget {
@@ -25,25 +26,53 @@ class ListCard extends StatelessWidget {
   double latitude;
   double longitude;
 
+  LocationPermission? permission;
+
+  Future<void> _askPermission() async {
+    bool serviceEnabled;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      permission = await Geolocator.requestPermission();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Material(
         color: Colors.transparent,
         child: GestureDetector(
-          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) {
-            return DestinationPage(
-              latitude: latitude,
-              longitude: longitude,
-              about: about,
-              rating: rating,
-              title: title,
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-              ),
-            );
-          })),
+          onTap: () async {
+            await _askPermission();
+            if (permission == LocationPermission.whileInUse ||
+                permission == LocationPermission.always) {
+                
+              
+              Navigator.push(context, MaterialPageRoute(builder: (_) {
+                return DestinationPage(
+                  latitude: latitude,
+                  longitude: longitude,
+                  about: about,
+                  rating: rating,
+                  title: title,
+                  child: Image.network(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                );
+              }));
+            }
+          },
           child: Stack(children: [
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),

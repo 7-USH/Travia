@@ -1,4 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, avoid_print, unnecessary_null_comparison
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, avoid_print, unnecessary_null_comparison, unused_field, unused_element
+
+
 
 import 'package:final_project/Screens/colorloader.dart';
 import 'package:final_project/Screens/flash_screen.dart';
@@ -11,9 +13,12 @@ import 'package:final_project/services/location.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:location/location.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+
 // ignore: unused_import
 
 // ignore: must_be_immutable
@@ -41,8 +46,9 @@ class DestinationPage extends StatefulWidget {
 }
 
 class _DestinationPageState extends State<DestinationPage> {
-   late double latitude =0  ;
-   late double longitude =0 ;
+  late double latitude = 0;
+  late double longitude = 0;
+ 
 
   @override
   void initState() {
@@ -50,6 +56,8 @@ class _DestinationPageState extends State<DestinationPage> {
     getLocation();
     setState(() {});
   }
+
+  
 
   void getLocation() async {
     MyLocation location = MyLocation();
@@ -165,20 +173,22 @@ class _DestinationPageState extends State<DestinationPage> {
                                       color: Colors.white,
                                       boxShadow: kBoxShadows),
                                   child: IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(
-                                                builder: (context) {
-                                          return GoogleScreen(
-                                            desLat: widget.latitude,
-                                            desLon: widget.longitude,
-                                            place: widget.title,
-                                            souLat: latitude,
-                                            souLon: longitude,
-                                          );
-                                        }));
-                                      });
+                                    onPressed: () async {
+                                      
+                                        setState(() {
+                                          Navigator.push(context,
+                                              MaterialPageRoute(
+                                                  builder: (context) {
+                                            return GoogleScreen(
+                                              desLat: widget.latitude,
+                                              desLon: widget.longitude,
+                                              place: widget.title,
+                                              souLat: latitude,
+                                              souLon: longitude,
+                                            );
+                                          }));
+                                        });
+                                      
                                     },
                                     icon: Icon(Icons.place_sharp),
                                     color: Color(0xFFCE6730),

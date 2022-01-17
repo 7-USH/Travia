@@ -50,6 +50,8 @@ dependencies:
   flutter_polyline_points: ^1.0.0
   geolocator: ^8.0.0
   flutter_secure_storage: ^5.0.2
+  permission_handler: ^8.3.0
+  
 
 
 dev_dependencies:
