@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, avoid_print, unnecessary_null_comparison
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, avoid_print, unnecessary_null_comparison, prefer_conditional_assignment
 
 import 'package:final_project/Screens/colorloader.dart';
 import 'package:final_project/Screens/flash_screen.dart';
@@ -26,6 +26,7 @@ class DestinationPage extends StatefulWidget {
       required this.longitude,
       required this.child,
       required this.about,
+      required this.subtitle,
       required this.rating,
       required this.title})
       : super(key: key);
@@ -37,6 +38,7 @@ class DestinationPage extends StatefulWidget {
   String title;
   double latitude;
   double longitude;
+  String subtitle;
 
   @override
   _DestinationPageState createState() => _DestinationPageState();
@@ -45,8 +47,8 @@ class DestinationPage extends StatefulWidget {
 class _DestinationPageState extends State<DestinationPage> {
   late double latitude = 0;
   late double longitude = 0;
-  WeatherApiClient client=WeatherApiClient();
-  late Weather? data;
+  final WeatherApiClient client = WeatherApiClient();
+  Weather? data;
 
   @override
   void initState() {
@@ -54,7 +56,6 @@ class _DestinationPageState extends State<DestinationPage> {
     getLocation();
     getData();
     setState(() {});
-
   }
 
   void getLocation() async {
@@ -65,15 +66,14 @@ class _DestinationPageState extends State<DestinationPage> {
     longitude = await location.getLongitude();
     print(longitude);
     setState(() {});
-    
-  }
-  void getData() async{
-    
-    data=await client.getCurrentWeather(widget.title);
-    print(data!.temp);
   }
 
-  
+  void getData() async {
+    data = await client.getCurrentWeather(widget.title);
+    if (data?.temp == null) {
+      data = await client.getCurrentWeather(widget.subtitle);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -155,32 +155,41 @@ class _DestinationPageState extends State<DestinationPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                        padding: EdgeInsets.only(
-                            top: size.height / 2.04, left: size.width / 9),
-                        // ignore: avoid_unnecessary_containers
-                        child: Text(
-                          widget.title,
-                          style: kImageText,
-                        ).shimmer(
-                            primaryColor: Colors.white,
-                            secondaryColor: Colors.grey,
-                            duration: const Duration(seconds: 2)),
-                      ),
+                            padding: EdgeInsets.only(
+                                top: size.height / 2.04, left: size.width / 9),
+                            // ignore: avoid_unnecessary_containers
+                            child: SizedBox(
+                              width: size.width*3/6,
+                              child: FittedBox(
+                                child: Text(
+                                  widget.title,
+                                  style: kImageText,
+                                ).shimmer(
+                                    primaryColor: Colors.white,
+                                    secondaryColor: Colors.grey,
+                                    duration: const Duration(seconds: 2)),
+                              ),
+                            ),
+                          ),
                           Padding(
-                        padding: EdgeInsets.only(
-                            top: size.height / 2.04, left: size.width / 9),
-                        // ignore: avoid_unnecessary_containers
-                        child: Text(
-                          "${data!.temp}°C",
-                          style: kImageText,
-                        ).shimmer(
-                            primaryColor: Colors.white,
-                            secondaryColor: Colors.grey,
-                            duration: const Duration(seconds: 2)),
-                      ),
+                            padding: EdgeInsets.only(
+                                top: size.height / 2.04, right: size.width / 9),
+                            // ignore: avoid_unnecessary_containers
+                            child: SizedBox(
+                              width: MediaQuery.of(context).size.width/6,
+                              child: FittedBox(
+                                child: Text(
+                                  data?.temp == null ? "NA" : "${data?.temp} °C",
+                                  style: kImageText,
+                                ).shimmer(
+                                    primaryColor: Colors.white,
+                                    secondaryColor: Colors.grey,
+                                    duration: const Duration(seconds: 2)),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
-                      
                       Padding(
                         padding: EdgeInsets.only(
                             top: size.height / 1.64, left: size.width / 14),

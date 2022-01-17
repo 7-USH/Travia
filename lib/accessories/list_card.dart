@@ -33,6 +33,7 @@ class ListCard extends StatelessWidget {
         child: GestureDetector(
           onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) {
             return DestinationPage(
+              subtitle: subtitle,
               latitude: latitude,
               longitude: longitude,
               about: about,
