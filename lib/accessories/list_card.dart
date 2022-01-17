@@ -52,27 +52,20 @@ class ListCard extends StatelessWidget {
     return Material(
         color: Colors.transparent,
         child: GestureDetector(
-          onTap: () async {
-            await _askPermission();
-            if (permission == LocationPermission.whileInUse ||
-                permission == LocationPermission.always) {
-                
-              
-              Navigator.push(context, MaterialPageRoute(builder: (_) {
-                return DestinationPage(
-                  latitude: latitude,
-                  longitude: longitude,
-                  about: about,
-                  rating: rating,
-                  title: title,
-                  child: Image.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
-                  ),
-                );
-              }));
-            }
-          },
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) {
+            return DestinationPage(
+              subtitle: subtitle,
+              latitude: latitude,
+              longitude: longitude,
+              about: about,
+              rating: rating,
+              title: title,
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
+              ),
+            );
+          })),
           child: Stack(children: [
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
