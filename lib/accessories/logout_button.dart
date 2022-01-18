@@ -1,8 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:ui';
 import 'package:final_project/Screens/login_screen.dart';
+import 'package:final_project/Screens/main_screen.dart';
 import 'package:final_project/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
@@ -27,6 +31,7 @@ class LogOutBackground extends StatefulWidget {
 
 class _LogOutBackgroundState extends State<LogOutBackground> {
   Color color = Colors.white;
+  final storage = FlutterSecureStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -41,37 +46,39 @@ class _LogOutBackgroundState extends State<LogOutBackground> {
       GestureDetector(
         onTap: () {
           Scaffold.of(context).showBottomSheet((context) => Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: MediaQuery.of(context).size.height/8,
-              decoration: BoxDecoration(
-                color: kbackGroundColor,
-                borderRadius: BorderRadius.circular(40)
-              ),  
-              child: Center(
-                child: InkWell(
-                  onTap: (){
-                    //TODO: logout
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width/1.5 ,
-                    height: MediaQuery.of(context).size.height / 12,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(40),
-                      boxShadow: kBoxShadows
-                    ),
-                    child: Center(
-                      child: Text("Log Out",
-                      style: kButtonText,
-              ),
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 8,
+                  decoration: BoxDecoration(
+                      color: kbackGroundColor,
+                      borderRadius: BorderRadius.circular(40)),
+                  child: Center(
+                    child: InkWell(
+                      onTap: () async {
+                        //TODO: logout
+                        await storage.delete(key: "uid");
+                        setState(() {});
+                        Navigator.pushNamedAndRemoveUntil(context,
+                            LoginScreen.id, ModalRoute.withName(MainScreen.id));
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 1.5,
+                        height: MediaQuery.of(context).size.height / 12,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(40),
+                            boxShadow: kBoxShadows),
+                        child: Center(
+                          child: Text(
+                            "Log Out",
+                            style: kButtonText,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),     
-            ),
-
-          ));
+              ));
         },
         onTapDown: (TapDownDetails details) {
           setState(() {
