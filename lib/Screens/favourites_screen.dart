@@ -130,6 +130,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                           }
 
                           return ListView.builder(
+                              physics: BouncingScrollPhysics(),
                               itemCount: newItems.length,
                               itemBuilder: (context, index) {
                                 return Dismissible(
