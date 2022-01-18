@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_import
+// ignore_for_file: prefer_const_constructors, unused_import, avoid_print
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/accessories/circular_background.dart';
 import 'package:final_project/accessories/list_card.dart';
@@ -204,7 +204,6 @@ class _MyListViewState extends State<MyListView> {
                       shouldColor: false,
                       message: message[index],
                       onTap: () {
-                        print(index);
                         if (index == 0) {
                           scrollToIndex(0);
                         }

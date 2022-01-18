@@ -77,6 +77,7 @@ class _ListCardState extends State<ListCard> {
       "image": widget.imageUrl,
       "title": widget.title,
       "subtitle": widget.subtitle,
+      "rating":widget.rating,
     });
     return await docs.update(data);
   }
