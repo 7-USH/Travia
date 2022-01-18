@@ -9,6 +9,7 @@ import 'package:final_project/networking/firestore_getinfo.dart';
 import 'package:final_project/provider/data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class FavouriteScreen extends StatefulWidget {
   FavouriteScreen({Key? key}) : super(key: key);
@@ -136,7 +137,9 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                   background: Container(
                                     height: 20,
                                     width: 20,
-                                    color: kbackGroundColor,
+                                    decoration: BoxDecoration(
+                                      color: kbackGroundColor,
+                                    ),
                                   ),
                                   key: UniqueKey(),
                                   child: newItems[index],
