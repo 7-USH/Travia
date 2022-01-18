@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:final_project/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 const double pinInvisible = -200;
@@ -20,8 +21,8 @@ class GoogleScreen extends StatefulWidget {
   GoogleScreen(
       {Key? key,
       required this.place,
-     this.souLat=0.0,
-     this.souLon=0.0,
+      this.souLat = 0.0,
+      this.souLon = 0.0,
       required this.desLat,
       required this.desLon})
       : super(key: key);
@@ -52,6 +53,16 @@ class _GoogleScreenState extends State<GoogleScreen> {
   Set<Polyline> _polylines = Set<Polyline>();
   List<LatLng> polyLineCoordinates = [];
   late PolylinePoints polylinePoints;
+  GoogleMapController? mapController;
+
+  _getLocation() async {
+    mapController?.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+      target: LatLng(widget.souLat, widget.souLon),
+      zoom: 10,
+      tilt: 80,
+      bearing: 30,
+    )));
+  }
 
   @override
   void initState() {
@@ -67,8 +78,8 @@ class _GoogleScreenState extends State<GoogleScreen> {
     var size = MediaQuery.of(context).size;
 
     CameraPosition initialCameraPosition = CameraPosition(
-      target: LatLng(widget.souLat, widget.souLon),
-      zoom: 15,
+      target: LatLng(widget.desLat, widget.desLon),
+      zoom: 10,
       tilt: 80,
       bearing: 30,
     );
@@ -85,6 +96,9 @@ class _GoogleScreenState extends State<GoogleScreen> {
             _controller.complete(controller);
             showPinsOnMap();
             setPolyLines();
+            setState(() {
+              mapController = controller;
+            });
           },
           onTap: (LatLng loc) {
             setState(() {
@@ -95,46 +109,54 @@ class _GoogleScreenState extends State<GoogleScreen> {
           initialCameraPosition: initialCameraPosition,
         ),
         SafeArea(
-          child: AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            curve: Curves.easeIn,
-            margin: EdgeInsets.all(20),
-            padding: EdgeInsets.only(left: 20, right: 20),
-            height: 70,
-            width: size.width / 1.2,
-            decoration: BoxDecoration(
-                color: isTap
-                    ? Colors.white.withOpacity(0.7)
-                    : kbackGroundColor.withOpacity(0.7),
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: kBoxShadows),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.person,
-                  size: 45,
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                Text(
-                  "My Location",
-                  style: kBlackText,
-                ),
-                Spacer(),
-                Container(
-                  height: 40,
-                  width: 40,
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.7),
-                      shape: BoxShape.circle),
-                  child: Image.asset(
-                    "assets/smallmarker.png",
-                    height: 30,
+          child: GestureDetector(
+            onTap: () {
+              _getLocation();
+              setState(() {
+                
+              });
+            },
+            child: AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              curve: Curves.easeIn,
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.only(left: 20, right: 20),
+              height: 70,
+              width: size.width / 1.2,
+              decoration: BoxDecoration(
+                  color: isTap
+                      ? Colors.white.withOpacity(0.7)
+                      : kbackGroundColor.withOpacity(0.7),
+                  borderRadius: BorderRadius.circular(50),
+                  boxShadow: kBoxShadows),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.person,
+                    size: 45,
                   ),
-                )
-              ],
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Text(
+                    "My Location",
+                    style: kBlackText,
+                  ),
+                  Spacer(),
+                  Container(
+                    height: 40,
+                    width: 40,
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.7),
+                        shape: BoxShape.circle),
+                    child: Image.asset(
+                      "assets/smallmarker.png",
+                      height: 30,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
