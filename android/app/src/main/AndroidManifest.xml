@@ -8,7 +8,7 @@
 
 
    <application
-        android:label="final_project"
+        android:label="Travia"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyBky7ng4jQQPBk5OlH8EiMDURaxseThQw4"/>

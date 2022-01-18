@@ -13,8 +13,8 @@ class FlashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: this.duration), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => this.nextPage));
+      Navigator.pushAndRemoveUntil(
+          context, MaterialPageRoute(builder: (context) => this.nextPage),ModalRoute.withName(FlashScreen.id));
     });
 
     return Scaffold(
