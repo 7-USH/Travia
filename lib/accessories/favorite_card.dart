@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors
+// ignore_for_file: camel_case_types, prefer_const_constructors, must_be_immutable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/constants.dart';
