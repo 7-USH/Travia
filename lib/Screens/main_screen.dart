@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, unused_import, avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/accessories/circular_background.dart';
 import 'package:final_project/accessories/list_card.dart';
@@ -55,7 +56,6 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
     _askPermission();
     FirestorInfo.dataStream();
-    
   }
 
   @override
@@ -203,16 +203,21 @@ class _MyListViewState extends State<MyListView> {
                       shouldColor: false,
                       message: message[index],
                       onTap: () {
+                        int i = 0;
                         if (index == 0) {
                           scrollToIndex(0);
+                          i++;
                         }
                         if (index == 1) {
-                          scrollToIndex(3);
+                          scrollToIndex(4);
+                          i++;
                         }
                         if (index == 2) {
-                          scrollToIndex(5);
+                          scrollToIndex(6);
+                          i++;
                         } else {
-                          scrollToIndex(10);
+                          scrollToIndex(8);
+                          i = 0;
                         }
                         setState(() {
                           tappedIndex = index;
@@ -236,6 +241,8 @@ class _MyListViewState extends State<MyListView> {
                     ),
                   );
                 } else {
+                  print(Provider.of<Data>(context, listen: false)
+                      .getAllLocations());
                   List<Widget> widgets =
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     Map<String, dynamic> data =

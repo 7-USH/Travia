@@ -7,10 +7,20 @@ class Data extends ChangeNotifier {
   final emailtextController = TextEditingController();
   final passtextController = TextEditingController();
   String? userUID;
+  Map<String, dynamic> allLocations = {};
 
   setUserUid(String? uId) {
     userUID = uId;
     notifyListeners();
+  }
+
+  setAllLocations(Map<String, dynamic> map) {
+    allLocations = map;
+    notifyListeners();
+  }
+
+  Map getAllLocations() {
+    return allLocations;
   }
 
   String? getUserUid() {
