@@ -48,7 +48,7 @@ Widget kAppLogo(context, Color prime, Color second, double size) {
 }
 
 final ThemeData kBackgroundTheme = ThemeData(
-    scaffoldBackgroundColor: Color(0xFFCE6730),
+    scaffoldBackgroundColor: Colors.white.withOpacity(0.95),
     primaryTextTheme: TextTheme(
         headline1: GoogleFonts.lobster(fontSize: 20, color: Colors.black)));
 

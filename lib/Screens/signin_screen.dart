@@ -23,6 +23,7 @@ class _SignInScreenState extends State<SignInScreen> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Color(0xFFCE6730),
         body: Container(
       alignment: Alignment.center,
       height: double.infinity,

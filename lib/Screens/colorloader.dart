@@ -79,6 +79,7 @@ class _ColorLoader3State extends State<ColorLoader3>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFCE6730),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

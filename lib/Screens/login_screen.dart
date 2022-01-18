@@ -17,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final size = MediaQuery.of(context).size;
     
     return Scaffold(
+      backgroundColor: const Color(0xFFCE6730),
       body: Stack(
         children: [
           Image.asset(

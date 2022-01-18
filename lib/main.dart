@@ -13,6 +13,7 @@ import 'package:final_project/Screens/signin_screen.dart';
 import 'package:final_project/accessories/favorite_card.dart';
 import 'package:final_project/constants.dart';
 import 'package:final_project/provider/data.dart';
+import 'package:final_project/services/MyThemes.dart';
 import 'package:final_project/services/onboardmodel.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -45,6 +46,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: kBackgroundTheme,
         debugShowCheckedModeBanner: false,
+        themeMode: ThemeMode.system,
+        darkTheme: MyThemes.darkTheme,
         home: FutureBuilder(
           future:checkloginstat(), builder: (BuildContext context, AsyncSnapshot<bool> snapshot) { 
             if(snapshot.data==false)

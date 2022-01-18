@@ -87,7 +87,6 @@ class _DestinationPageState extends State<DestinationPage> {
     return Scaffold(
       floatingActionButton: latitude == 0 ? Center() : BookButton(text: "BOOK"),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      backgroundColor: Colors.white.withOpacity(0.95),
       body: latitude == 0
           ? ColorLoader3()
           : ListView(

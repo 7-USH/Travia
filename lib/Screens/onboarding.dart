@@ -34,7 +34,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        backgroundColor: Colors.white.withOpacity(0.95),
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(bottom: 30.0),
           child: OnBoardButton(

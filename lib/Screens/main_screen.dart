@@ -63,7 +63,6 @@ class _MainScreenState extends State<MainScreen> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white.withOpacity(0.95),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
