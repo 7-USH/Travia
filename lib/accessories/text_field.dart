@@ -43,7 +43,7 @@ class _MyTextFieldState extends State<MyTextField> {
                   blurRadius: 20),
             ]),
         width: size.width / 1.16,
-        height: 50,
+        height: size.height/16,
         child: TextField(
           onChanged: (String value) {
             getPlace(value);
