@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unnecessary_null_comparison
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
 import 'package:final_project/accessories/continue_button.dart';
 import 'package:final_project/constants.dart';
@@ -84,13 +85,15 @@ class UserInfoClass {
                         final newUser =
                             await _auth.createUserWithEmailAndPassword(
                                 email: email, password: password);
-                        // ignore: unnecessary_null_comparison
+
+                        await storage.write(
+                            key: "uid", value: newUser.user?.uid);
 
                         Provider.of<Data>(context, listen: false)
                             .setUserUid(newUser.user?.uid);
 
                         if (newUser != null) {
-                          Navigator.pushNamed(context, MainScreen.id);
+                          Navigator.pushNamedAndRemoveUntil(context, MainScreen.id, ModalRoute.withName(MainScreen.id));
                         }
                         adduser(newUser.user!.uid,newUser.user!.email);
                       } catch (e) {
@@ -114,7 +117,10 @@ class UserInfoClass {
                             .getUserUid());
                         // ignore: unnecessary_null_comparison
                         if (newUser != null) {
-                          Navigator.pushNamed(context, MainScreen.id);
+                          Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              MainScreen.id,
+                              (Route<dynamic> route) => false);
                           // Provider.of<Data>(context).fieldText.clear();
                         }
                         adduser(newUser.user!.uid,newUser.user!.email);
