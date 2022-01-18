@@ -24,6 +24,8 @@ ___
  [**Tushar Mali**](https://github.com/7-USH) - **tush1245@gmail.com**
  
  [**Nirbhay Hanjura**](https://github.com/botnirbhay) - **hanjuranirbhay@gmail.com**
+ 
+ [**Mansi Shingate**](https://github.com/Mansi-Shingate) - **mansishingate14@gmail.com**
 
 ## :bow: Mentors
 [**Prajwal Kolte**](https://github.com/prajwalkolte8301)
