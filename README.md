@@ -59,7 +59,8 @@ about the destination such as :
 - [x] Getting User Location
 - [x] Getting Destination Location
 - [x] Place Description
-- [ ] Add Places to Wishlist
+- [x] Weather of Places
+- [x] Add Places to Wishlist
 - [ ] Search for places
 
 
