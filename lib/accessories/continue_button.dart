@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ContinueButton extends StatefulWidget {
-
   ContinueButton({Key? key, required this.onPressed}) : super(key: key);
 
   Function onPressed;
@@ -19,6 +18,7 @@ class _ContinueButtonState extends State<ContinueButton> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Material(
       key: widget.key,
       color: Colors.transparent,
@@ -50,8 +50,8 @@ class _ContinueButtonState extends State<ContinueButton> {
               )
             ],
           ),
-          height: 50,
-          width: 150,
+          height: size.height/15,
+          width: size.width/2.7,
           decoration: BoxDecoration(
               color: buttonColor,
               borderRadius: const BorderRadius.all(Radius.circular(10)),

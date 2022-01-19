@@ -121,7 +121,7 @@ class _ListCardState extends State<ListCard> {
           },
           child: Stack(children: [
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: EdgeInsets.symmetric(horizontal: size.width/20),
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: kBoxShadows,
@@ -139,24 +139,32 @@ class _ListCardState extends State<ListCard> {
                         borderRadius: BorderRadius.circular(20),
                         // ignore: sized_box_for_whitespace
                         child: Container(
-                          height: 200,
-                          width: 200,
+                          height: size.height/4.1,
+                          width: size.height/4.1,
                           child: Image.network(
                             widget.imageUrl,
                             fit: BoxFit.cover,
                           ),
                         )),
                     SizedBox(
-                      height: 15,
+                      height: size.height/60,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: EdgeInsets.only(left: size.width / 20),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            widget.title,
-                            style: kBlackSmallText,
+                          SizedBox(
+                            width: size.width/3,
+                            height: size.height/38,                          
+                            child: FittedBox(
+                              alignment: Alignment.topLeft,
+                              child: Text(
+                                widget.title,
+                                style: kBlackSmallText,
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
                           ),
                           SizedBox(
                             height: 3,
@@ -173,7 +181,7 @@ class _ListCardState extends State<ListCard> {
               ),
             ),
             Positioned(
-                left: size.width / 2.3,
+                left: size.width / 2.2,
                 bottom: size.height / 13,
                 child: IconButton(
                     onPressed: () {

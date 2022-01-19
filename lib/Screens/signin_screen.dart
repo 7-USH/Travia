@@ -43,7 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(
                       height: size.height / 7,
                     ),
-                    myAnimeText(),
+                    Center(child: myAnimeText(context)),
                     // ignore: prefer_const_constructo
                   ],
                 ),
