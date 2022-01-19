@@ -68,6 +68,8 @@ about the destination such as :
 
 - [GitHub Repo Link](https://github.com/7-USH/Travia)
 
+- [Recording and Screenshots](https://drive.google.com/drive/folders/1T9RuKHsKQ6qb-46XY035h_bo6EEsGwQQ?usp=sharing)
+
 ## :point_right: How To Use
 
 - To clone and run this application, you'll need [Git](https://git-scm.com) and [Flutter](https://flutter.dev/docs/get-started/install) installed on your computer. From your command line:
