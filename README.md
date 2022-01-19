@@ -66,7 +66,7 @@ about the destination such as :
 
 ## :point_right: How To Use
 
->To clone and run this application, you'll need [Git](https://git-scm.com) and [Flutter](https://flutter.dev/docs/get-started/install) installed on your computer. From your command line:
+- To clone and run this application, you'll need [Git](https://git-scm.com) and [Flutter](https://flutter.dev/docs/get-started/install) installed on your computer. From your command line:
 ```bash
 # Clone this repository
 $ git clone https://github.com/7-USH/Travia
@@ -80,6 +80,48 @@ $ flutter packages get
 # Run the app
 $ flutter run
 ```
+### Packages
+
+- here are some of the packages used in the project. Below are the information about these packages.
+
+Package | Explain
+---|---
+[font_awesome_flutter](https://pub.flutter-io.cn/packages/font_awesome_flutter) | Awesome icons
+[Geolocator](https://pub.dev/documentation/geolocator/latest/) | User Location
+[http](https://pub.flutter-io.cn/packages/table_calendar) | Network
+[VelocityX](https://velocityx.dev/) | State Management
+[Google Maps](https://pub.dev/packages/google_maps_flutter) | Maps
+[Page Transition](https://pub.dev/packages/page_transition) | Page Animations
+[google_fonts](https://pub.flutter-io.cn/packages/google_fonts) | Google fonts 
+[Secure Storage](https://pub.dev/packages/flutter_secure_storage) | Keeping Login Details
+[Url_launcher](https://pub.dev/packages/url_launcher) | Open url links
+[build_runner](https://pub.flutter-io.cn/packages/build_runner) | Build Custom Models
+
+### Directory Structure
+
+- The project directory structure is as follows:
+
+```
+|
+├── android
+├── asset
+├── build
+├── images
+├── ios
+├── lib
+│   ├── Screens
+│   ├── accessories
+│   ├── networking
+│   ├── provider
+│   ├── reuseablewidgets
+│   └── services
+├── web
+├── pubspec.lock
+└── pubspec.yaml
+
+```
+
+
 ## :ok_hand: Applications
 
 >Being new to the place can be very tiring as we do not have any idea of the place around us. Thus Travia app will provide the location of the desired destination with the help of google maps and also user's current location. Getting details about the destination is feasible while using Travia App, also maintaing the authentication of the user is our prime task. This app covers some of the famous tourist places in India while providing the location of the selected place.
