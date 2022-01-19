@@ -63,8 +63,22 @@ about the destination such as :
 - [x] Add Places to Wishlist
 - [ ] Search for places
 
+## :point_right: How To Use
 
+>To clone and run this application, you'll need [Git](https://git-scm.com) and [Flutter](https://flutter.dev/docs/get-started/install) installed on your computer. From your command line:
+```bash
+# Clone this repository
+$ git clone https://github.com/7-USH/Travia
 
+# Go into the repository
+$ cd Travia
+
+# To Install the dependencies
+$ flutter packages get
+
+# Run the app
+$ flutter run
+```
 ## :ok_hand: Applications
 
 >Being new to the place can be very tiring as we do not have any idea of the place around us. Thus Travia app will provide the location of the desired destination with the help of google maps and also user's current location. Getting details about the destination is feasible while using Travia App, also maintaing the authentication of the user is our prime task. This app covers some of the famous tourist places in India while providing the location of the selected place.
