@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_typing_uninitialized_variables, unused_import, unused_local_variable, import_of_legacy_library_into_null_safe
+// ignore_for_file: prefer_typing_uninitialized_variables, unused_import, unused_local_variable, import_of_legacy_library_into_null_safe, unnecessary_null_comparison
 
 import 'package:final_project/Screens/custom_drawer.dart';
 import 'package:final_project/Screens/favourites_screen.dart';
@@ -46,8 +46,13 @@ class _CustomNavBarState extends State<CustomNavBar> {
             buildNewSingleNavbar(
                 icon: Icons.favorite_outline,
                 label: 1,
-                onTap: () {
-                  Navigator.pushNamed(context, FavouriteScreen.id);
+                onTap: () async {
+                  var nav =  await Navigator.pushNamed(context, FavouriteScreen.id);
+                  if (nav==true || nav == null) {
+                    setState(() {
+                      
+                    });
+                  }
                 }),
             buildNewSingleNavbar(
                 icon: Icons.travel_explore,

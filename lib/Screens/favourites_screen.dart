@@ -26,8 +26,8 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
     );
   }
 
-  Future _deleteData(String uid, String title, List<Widget> array,int index) async {
-    
+  Future _deleteData(
+      String uid, String title, List<Widget> array, int index) async {
     DocumentReference docs =
         FirebaseFirestore.instance.collection("Users").doc(uid);
 
@@ -59,8 +59,10 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               children: [
                 IconButton(
                     onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(context, MainScreen.id,
-                          ModalRoute.withName(FavouriteScreen.id));
+                      Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          MainScreen.id,
+                          ModalRoute.withName(FavouriteScreen.id),arguments: true);
                     },
                     icon: Icon(
                       Icons.arrow_back_outlined,
@@ -150,7 +152,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                             .getUserUid()!,
                                         newItems[index].title,
                                         newItems,
-                                        index);                                   
+                                        index);
                                   },
                                 );
                               });
