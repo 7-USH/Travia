@@ -58,7 +58,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                   });
                 }),
             buildNewSingleNavbar(
-                icon: Icons.settings_outlined,
+                icon: Icons.info_outline_rounded,
                 label: 3,
                 onTap: () {
                   // TODO : show settings
