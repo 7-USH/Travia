@@ -20,7 +20,7 @@ ___
 ___
 
 
-## :star2: Team members
+## 🤖 Team members
  [**Tushar Mali**](https://github.com/7-USH) - **tush1245@gmail.com**
  
  [**Nirbhay Hanjura**](https://github.com/botnirbhay) - **hanjuranirbhay@gmail.com**
