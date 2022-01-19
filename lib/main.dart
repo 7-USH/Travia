@@ -2,6 +2,7 @@
 // ignore: unused_import
 //flutter run --no-sound-null-safety
 import 'package:final_project/Screens/colorloader.dart';
+import 'package:final_project/Screens/custom_drawer.dart';
 import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/Screens/favourites_screen.dart';
 import 'package:final_project/Screens/flash_screen.dart';
