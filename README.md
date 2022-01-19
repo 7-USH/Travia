@@ -52,7 +52,7 @@ about the destination such as :
 
 ![Dart](https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg)&nbsp;&nbsp;&nbsp;![Firebase]( https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg) ![Flutter](https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg)&nbsp;&nbsp;&nbsp;![Git](https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg)&nbsp;&nbsp;&nbsp;![Android](https://www.vectorlogo.zone/logos/android/android-icon.svg)
 
-## :chart: Progress
+## 📈 Progress
 - [x] Login
 - [x] SignUp
 - [x] Popular Locations in India
