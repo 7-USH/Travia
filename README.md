@@ -15,12 +15,12 @@ ___
 ___
 
 
-### **Team name : AutoBots**
+## **Team AutoBots**
 
 ___
 
 
-## :star2: Team members
+## 🤖 Team members
  [**Tushar Mali**](https://github.com/7-USH) - **tush1245@gmail.com**
  
  [**Nirbhay Hanjura**](https://github.com/botnirbhay) - **hanjuranirbhay@gmail.com**
@@ -47,11 +47,12 @@ about the destination such as :
 - Front-end development using [**Dart**](https://dart.dev/)
 - Mobile Application development using [**Flutter**](https://flutter.dev/docs) and [**Android Studio**](https://developer.android.com/studio)
 - Back-end development using [**Firebase**](https://firebase.google.com/)
-- Google Map, Directions Api using [**Google Cloud Platoform**](https://console.cloud.google.com/)
+- Google Map, Directions Api using [**Google Cloud Platform**](https://console.cloud.google.com/)
+- Version Control using [**Git**](https://git-scm.com/)
 
-![Dart](https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg)&nbsp;&nbsp;&nbsp;![Firebase]( https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg) ![Flutter](https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg)
+![Dart](https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg)&nbsp;&nbsp;&nbsp;![Firebase]( https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg) ![Flutter](https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg)&nbsp;&nbsp;&nbsp;![Git](https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg)&nbsp;&nbsp;&nbsp;![Android](https://www.vectorlogo.zone/logos/android/android-icon.svg)
 
-## :chart: Progress
+## 📈 Progress
 - [x] Login
 - [x] SignUp
 - [x] Popular Locations in India
@@ -63,6 +64,66 @@ about the destination such as :
 - [x] Add Places to Wishlist
 - [ ] Search for places
 
+## :link: Links
+
+- [GitHub Repo Link](https://github.com/7-USH/Travia)
+
+## :point_right: How To Use
+
+- To clone and run this application, you'll need [Git](https://git-scm.com) and [Flutter](https://flutter.dev/docs/get-started/install) installed on your computer. From your command line:
+```bash
+# Clone this repository
+$ git clone https://github.com/7-USH/Travia
+
+# Go into the repository
+$ cd Travia
+
+# To Install the dependencies
+$ flutter packages get
+
+# Run the app
+$ flutter run
+```
+### Packages
+
+- here are some of the packages used in the project. Below are the information about these packages.
+
+Package | Explain
+---|---
+[font_awesome_flutter](https://pub.flutter-io.cn/packages/font_awesome_flutter) | Awesome icons
+[Geolocator](https://pub.dev/documentation/geolocator/latest/) | User Location
+[http](https://pub.flutter-io.cn/packages/table_calendar) | Network
+[VelocityX](https://velocityx.dev/) | State Management
+[Google Maps](https://pub.dev/packages/google_maps_flutter) | Maps
+[Page Transition](https://pub.dev/packages/page_transition) | Page Animations
+[google_fonts](https://pub.flutter-io.cn/packages/google_fonts) | Google fonts 
+[Secure Storage](https://pub.dev/packages/flutter_secure_storage) | Keeping Login Details
+[Url_launcher](https://pub.dev/packages/url_launcher) | Open url links
+[build_runner](https://pub.flutter-io.cn/packages/build_runner) | Build Custom Models
+
+### Top-Level Directory Structure
+
+- The project directory structure is as follows:
+
+```
+|
+├── android
+├── asset
+├── build
+├── images
+├── ios
+├── lib
+│   ├── Screens
+│   ├── accessories
+│   ├── networking
+│   ├── provider
+│   ├── reuseablewidgets
+│   └── services
+├── web
+├── pubspec.lock
+└── pubspec.yaml
+
+```
 
 
 ## :ok_hand: Applications
