@@ -15,7 +15,7 @@ ___
 ___
 
 
-### **Team name : AutoBots**
+## **Team AutoBots**
 
 ___
 
@@ -50,7 +50,7 @@ about the destination such as :
 - Google Map, Directions Api using [**Google Cloud Platform**](https://console.cloud.google.com/)
 - Version Control using [**Git**](https://git-scm.com/)
 
-![Dart](https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg)&nbsp;&nbsp;&nbsp;![Firebase]( https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg) ![Flutter](https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg)&nbsp;&nbsp;&nbsp;![Git](https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg)
+![Dart](https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg)&nbsp;&nbsp;&nbsp;![Firebase]( https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg) ![Flutter](https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg)&nbsp;&nbsp;&nbsp;![Git](https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg)&nbsp;&nbsp;&nbsp;![Android](https://www.vectorlogo.zone/logos/android/android-icon.svg)
 
 ## :chart: Progress
 - [x] Login
