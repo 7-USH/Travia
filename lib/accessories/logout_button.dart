@@ -1,6 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'dart:ui';
 import 'package:final_project/Screens/login_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
 import 'package:final_project/constants.dart';
@@ -45,40 +43,46 @@ class _LogOutBackgroundState extends State<LogOutBackground> {
       ),
       GestureDetector(
         onTap: () {
-          Scaffold.of(context).showBottomSheet((context) => Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: MediaQuery.of(context).size.height / 8,
-                  decoration: BoxDecoration(
-                      color: kbackGroundColor,
-                      borderRadius: BorderRadius.circular(40)),
-                  child: Center(
-                    child: InkWell(
-                      onTap: () async {
-                        //TODO: logout
-                        await storage.delete(key: "uid");
-                        setState(() {});
-                        Navigator.pushNamedAndRemoveUntil(context,
-                            LoginScreen.id, ModalRoute.withName(MainScreen.id));
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width / 1.5,
-                        height: MediaQuery.of(context).size.height / 12,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(40),
-                            boxShadow: kBoxShadows),
-                        child: Center(
-                          child: Text(
-                            "Log Out",
-                            style: kButtonText,
-                          ),
+          Scaffold.of(context).showBottomSheet(
+        
+            (context) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height / 8,
+                decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.circular(40)),
+                child: Center(
+                  child: InkWell(
+                    onTap: () async {
+                      //TODO: logout
+                      await storage.delete(key: "uid");
+                      setState(() {});
+                      Navigator.pushNamedAndRemoveUntil(context, LoginScreen.id,
+                          ModalRoute.withName(MainScreen.id));
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 1.5,
+                      height: MediaQuery.of(context).size.height / 12,
+                      decoration: BoxDecoration(
+                          color: kbackGroundColor,
+                          borderRadius: BorderRadius.circular(40),
+                          boxShadow: kBoxShadows),
+                      child: Center(
+                        child: Text(
+                          "Log Out",
+                          style: GoogleFonts.belgrano(
+                              color: Colors.white, fontSize: 25),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ));
+              ),
+            );
+          },          
+          );
         },
         onTapDown: (TapDownDetails details) {
           setState(() {
