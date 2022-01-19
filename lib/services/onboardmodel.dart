@@ -10,10 +10,10 @@ class Utils {
     return [
       OnBoardModel(
           message:
-              "You only live once, But if you \n   do it right once is enough.",
+              "You only live once, But if you \ndo it right once is enough.",
           img: "assets/travel.png"),
-      OnBoardModel(message: "A journey of a thousand \n    miles begins with a \n         single step", img: "assets/shades.png"),
-      OnBoardModel(message: "Love is the food of life,\n  Travel is Dessert", img: "assets/plane.png")
+      OnBoardModel(message: "A journey of a thousand miles \nbegins with a single step", img: "assets/shades.png"),
+      OnBoardModel(message: "Love is the food of life,\nTravel is Dessert", img: "assets/plane.png")
     ];
   }
 }

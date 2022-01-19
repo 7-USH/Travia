@@ -27,15 +27,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   void dispose() {
     super.dispose();
-      _controller.dispose();
+    _controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 30.0),
+          padding: EdgeInsets.only(bottom: size.height/30),
           child: OnBoardButton(
             message: "Let's Go",
           ),
@@ -49,6 +50,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           Colors.orange.withOpacity(0.4), 50))),
               Expanded(
                 child: PageView(
+                  physics: BouncingScrollPhysics(),
                   controller: _controller,
                   onPageChanged: (int page) {
                     setState(() {
@@ -58,9 +60,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   children: List.generate(
                       _content.length,
                       (index) => Container(
-                            padding: const EdgeInsets.all(40),
-                            margin: const EdgeInsets.only(
-                                left: 40, right: 40, top: 40, bottom: 150),
+                            padding:  EdgeInsets.all(size.height/30),
+                            margin: EdgeInsets.only(
+                                left: size.width/10, right: size.width/10, top: size.width/10, bottom: size.height/5),
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(50),
@@ -79,9 +81,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   _content[index].img,
                                   fit: BoxFit.cover,
                                 ),
-                                Text(
-                                  _content[index].message,
-                                  style: smallwelcomeText,
+                                SizedBox(
+                                  height: size.height/12,
+                                  child: FittedBox(
+                                    fit: BoxFit.cover,
+                                    child: Text(
+                                      _content[index].message,
+                                      style: smallwelcomeText,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
                                 )
                               ],
                             ),
@@ -91,7 +100,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 690.0),
+            padding: EdgeInsets.only(top: size.height/1.2),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -114,4 +123,3 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ]));
   }
 }
-

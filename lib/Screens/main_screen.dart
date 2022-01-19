@@ -116,7 +116,7 @@ class _MainScreenState extends State<MainScreen> {
               ],
             ),
             SizedBox(
-              height: size.height / 30,
+              height: size.height / 40,
             ),
             Padding(
                 padding: const EdgeInsets.only(left: 25.0),
@@ -139,14 +139,13 @@ class _MainScreenState extends State<MainScreen> {
             ),
             Center(child: MyTextField()),
             SizedBox(
-              height: size.height / 100,
-            ),
-            // RowTabWidget(),
-            SizedBox(
-              height: size.height / 100,
+              height: size.height / 40,
             ),
             MyListView(size: size),
-            Flexible(child: CustomNavBar())
+            SizedBox(
+              height: size.height/90,
+            ),
+            CustomNavBar()
           ],
         ),
       ),
