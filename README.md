@@ -62,7 +62,7 @@ about the destination such as :
 - [x] Place Description
 - [x] Weather of Places
 - [x] Add Places to Wishlist
-- [ ] Search for places
+- [x] Search for places
 
 ## :link: Links
 
