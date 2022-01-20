@@ -137,10 +137,9 @@ Package | Explain
  - Booking of tickets using External api
  - Scheduling itinerary with respect to time and date.
 
-## :camera: Demo
+## ⭐ Demo
 
-____
->Lets take a look at the app
+>Lets have a  quick look at the app
 
 ![demo](assets/demo.gif)
 
