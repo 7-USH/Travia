@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class UserInfoClass {
@@ -30,7 +31,7 @@ class UserInfoClass {
   final storage = FlutterSecureStorage();
   // final user = FirebaseAuth.instance.currentUser!;
 
-  adduser(String userCode,String? mail) async {
+  adduser(String userCode, String? mail) async {
     bool isPresent = false;
     await userData.get().then((querySnapshot) {
       for (var user in querySnapshot.docs) {
@@ -41,9 +42,7 @@ class UserInfoClass {
       }
 
       if (isPresent == false) {
-         userData.doc(userCode).set({
-          "name": mail, 'favs' : []
-        });
+        userData.doc(userCode).set({"name": mail, 'favs': []});
       }
     });
   }
@@ -93,9 +92,12 @@ class UserInfoClass {
                             .setUserUid(newUser.user?.uid);
 
                         if (newUser != null) {
-                          Navigator.pushNamedAndRemoveUntil(context, MainScreen.id, ModalRoute.withName(MainScreen.id));
+                          Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              MainScreen.id,
+                              ModalRoute.withName(MainScreen.id));
                         }
-                        adduser(newUser.user!.uid,newUser.user!.email);
+                        adduser(newUser.user!.uid, newUser.user!.email);
                       } catch (e) {
                         print(e);
                       }
@@ -117,18 +119,15 @@ class UserInfoClass {
                             .getUserUid());
                         // ignore: unnecessary_null_comparison
                         if (newUser != null) {
-                          Navigator.pushNamedAndRemoveUntil(
-                              context,
-                              MainScreen.id,
-                              (Route<dynamic> route) => false);
+                          Navigator.pushNamedAndRemoveUntil(context,
+                              MainScreen.id, (Route<dynamic> route) => false);
                           // Provider.of<Data>(context).fieldText.clear();
                         }
-                        adduser(newUser.user!.uid,newUser.user!.email);
+                        adduser(newUser.user!.uid, newUser.user!.email);
                       } catch (e) {
                         print(e);
                       }
                     }
-                    
                   }),
                   SizedBox(
                     height: 20,
@@ -144,7 +143,9 @@ class UserInfoClass {
                           foregroundColor:
                               MaterialStateProperty.all(Colors.transparent)),
                       autofocus: true,
-                      onPressed: () {},
+                      onPressed: () {
+                        launch("mailto:tush1245@gmail.com");
+                      },
                       child: Text(
                         "Let us know if your facing any issue !",
                         style: kMainScreenText,

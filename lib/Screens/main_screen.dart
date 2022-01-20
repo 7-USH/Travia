@@ -55,7 +55,6 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _askPermission();
-    FirestorInfo.dataStream();
   }
 
   @override
@@ -143,7 +142,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             MyListView(size: size),
             SizedBox(
-              height: size.height/90,
+              height: size.height / 90,
             ),
             CustomNavBar()
           ],
@@ -160,7 +159,7 @@ class MyListView extends StatefulWidget {
   }) : super(key: key);
 
   final Size size;
-
+ 
   @override
   State<MyListView> createState() => _MyListViewState();
 }
@@ -240,8 +239,6 @@ class _MyListViewState extends State<MyListView> {
                     ),
                   );
                 } else {
-                  print(Provider.of<Data>(context, listen: false)
-                      .getAllLocations());
                   List<Widget> widgets =
                       snapshot.data!.docs.map((DocumentSnapshot document) {
                     Map<String, dynamic> data =

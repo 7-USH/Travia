@@ -3,6 +3,7 @@
 //flutter run --no-sound-null-safety
 import 'package:final_project/Screens/colorloader.dart';
 import 'package:final_project/Screens/custom_drawer.dart';
+import 'package:final_project/Screens/default_page.dart';
 import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/Screens/favourites_screen.dart';
 import 'package:final_project/Screens/flash_screen.dart';
@@ -76,6 +77,7 @@ class MyApp extends StatelessWidget {
           SignInScreen.id: (context) => SignInScreen(),
           MainScreen.id: (context) => MainScreen(),
           FavouriteScreen.id: (context) => FavouriteScreen(),
+          DefaultPage.id : (context) => DefaultPage(),
         },
       ),
     );

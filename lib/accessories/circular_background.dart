@@ -36,7 +36,7 @@ class _CircleBackgroundState extends State<CircleBackground> {
       ),
       GestureDetector(
         onTap: () {
-          widget.onPressed;
+          widget.onPressed();
         },
         onTapDown: (TapDownDetails details) {
           setState(() {
