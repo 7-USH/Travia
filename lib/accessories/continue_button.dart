@@ -39,16 +39,16 @@ class _ContinueButtonState extends State<ContinueButton> {
           });
         },
         child: Container(
-          child: Row(
-            children: [
-              const SizedBox(
-                width: 28,
-              ),
-              Text(
-                "Continue",
-                style: GoogleFonts.lobster(fontSize: 30, color: Colors.white),
-              )
-            ],
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Continue",
+                  style: GoogleFonts.lobster(fontSize: 30, color: Colors.white),
+                )
+              ],
+            ),
           ),
           height: size.height/15,
           width: size.width/2.7,
