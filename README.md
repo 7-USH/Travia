@@ -66,6 +66,8 @@ about the destination such as :
 
 ## :link: Links
 
+- [Apk Link](https://drive.google.com/drive/folders/15vKxSle6yG4JUS0_3LRzyBL0zClGOAma?usp=sharing)
+
 - [GitHub Repo Link](https://github.com/7-USH/Travia)
 
 - [Recording and Screenshots](https://drive.google.com/drive/folders/1T9RuKHsKQ6qb-46XY035h_bo6EEsGwQQ?usp=sharing)
