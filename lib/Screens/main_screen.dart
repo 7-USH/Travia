@@ -1,6 +1,8 @@
-// ignore_for_file: prefer_const_constructors, unused_import, avoid_print
+// ignore_for_file: prefer_const_constructors, unused_import, avoid_print, prefer_typing_uninitialized_variables
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:final_project/Screens/colorloader.dart';
 import 'package:final_project/accessories/circular_background.dart';
 import 'package:final_project/accessories/list_card.dart';
 import 'package:final_project/accessories/logout_button.dart';
@@ -51,6 +53,7 @@ class _MainScreenState extends State<MainScreen> {
         .setUserUid(_auth.currentUser?.uid);
   }
 
+
   @override
   void initState() {
     super.initState();
@@ -60,95 +63,97 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: size.height / 50,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15),
-                      child: CircleBackground(
-                        onPressed: () {},
-                        widget: Icon(
-                          Icons.person,
-                          color: Color(0xFFCE6730),
-                        ),
-                        height1: 50,
-                        height2: 40,
-                        width1: 50,
-                        width2: 40,
-                      ),
-                    ),
-                    SizedBox(
-                      width: size.width / 20,
-                    ),
-                    Text(
-                      "Hello, There!",
-                      style: kMainScreenText,
-                    )
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 15),
-                  child: LogOutBackground(
-                    auth: _auth,
-                    widget: Icon(
-                      Icons.settings_outlined,
-                      color: Color(0xFFCE6730),
-                    ),
-                    height1: 50,
-                    height2: 40,
-                    width1: 50,
-                    width2: 40,
+    return _auth.currentUser == null
+        ? ColorLoader3()
+        : Scaffold(
+            resizeToAvoidBottomInset: false,
+            body: SafeArea(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: size.height / 50,
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: size.height / 40,
-            ),
-            Padding(
-                padding: const EdgeInsets.only(left: 25.0),
-                child: RichText(
-                  text: TextSpan(
-                    text: "What's next \non your",
-                    style: kMainScreenDarkText,
-                    children: const <TextSpan>[
-                      TextSpan(
-                          text: " wishlist",
-                          style: TextStyle(color: Color(0xFFCE6730))),
-                      TextSpan(
-                        text: " ?",
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: CircleBackground(
+                              onPressed: () {},
+                              widget: Icon(
+                                Icons.person,
+                                color: Color(0xFFCE6730),
+                              ),
+                              height1: 50,
+                              height2: 40,
+                              width1: 50,
+                              width2: 40,
+                            ),
+                          ),
+                          SizedBox(
+                            width: size.width / 20,
+                          ),
+                          Text(
+                            "Hello, There!",
+                            style: kMainScreenText,
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: LogOutBackground(
+                          auth: _auth,
+                          widget: Icon(
+                            Icons.settings_outlined,
+                            color: Color(0xFFCE6730),
+                          ),
+                          height1: 50,
+                          height2: 40,
+                          width1: 50,
+                          width2: 40,
+                        ),
                       ),
                     ],
                   ),
-                )),
-            SizedBox(
-              height: size.height / 28,
+                  SizedBox(
+                    height: size.height / 40,
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: RichText(
+                        text: TextSpan(
+                          text: "What's next \non your",
+                          style: kMainScreenDarkText,
+                          children: const <TextSpan>[
+                            TextSpan(
+                                text: " wishlist",
+                                style: TextStyle(color: Color(0xFFCE6730))),
+                            TextSpan(
+                              text: " ?",
+                            ),
+                          ],
+                        ),
+                      )),
+                  SizedBox(
+                    height: size.height / 28,
+                  ),
+                  Center(child: MyTextField()),
+                  SizedBox(
+                    height: size.height / 40,
+                  ),
+                  MyListView(size: size),
+                  SizedBox(
+                    height: size.height / 90,
+                  ),
+                  CustomNavBar()
+                ],
+              ),
             ),
-            Center(child: MyTextField()),
-            SizedBox(
-              height: size.height / 40,
-            ),
-            MyListView(size: size),
-            SizedBox(
-              height: size.height / 90,
-            ),
-            CustomNavBar()
-          ],
-        ),
-      ),
-    );
+          );
   }
 }
 
@@ -159,7 +164,7 @@ class MyListView extends StatefulWidget {
   }) : super(key: key);
 
   final Size size;
- 
+
   @override
   State<MyListView> createState() => _MyListViewState();
 }

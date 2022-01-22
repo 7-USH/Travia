@@ -40,6 +40,7 @@ class _MyCustomDrawerState extends State<MyCustomDrawer> {
               boxShadow: kBoxShadows),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Center(child: kAppLogo(context, Colors.white, Colors.white, 50)),
               Padding(
@@ -55,13 +56,17 @@ class _MyCustomDrawerState extends State<MyCustomDrawer> {
                           fontSize: 17,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      height: size.height / 4.3,
-                      child: Text(
-                        """Travia is an app for Travellers.Being new to the place can be very tiring as we do not have any idea of the place around us. Thus Travia app will provide the location of the desired destination with the help of google maps and also user's current location. Getting details about the destination is feasible while using Travia App, also maintaing the authentication of the user is our prime task. This app covers some of the famous tourist places in India while providing the location of the selected place.""",
-                        style: GoogleFonts.belgrano(
-                            color: Colors.white, fontSize: 13),
-                        textAlign: TextAlign.justify,
+                    FittedBox(
+                      fit: BoxFit.fitHeight,
+                      child: SizedBox(
+                        height: size.height / 4.3,
+                        width: size.width,
+                        child: Text(
+                          """Travia is an app for Travellers.Being new to the place can be very tiring as we do not have any idea of the place around us. Thus Travia app will provide the location of the desired destination with the help of google maps and also user's current location. Getting details about the destination is feasible while using Travia App, also maintaing the authentication of the user is our prime task. This app covers some of the famous tourist places in India while providing the location of the selected place.""",
+                          style: GoogleFonts.belgrano(
+                              color: Colors.white, fontSize: 13),
+                          textAlign: TextAlign.justify,
+                        ),
                       ),
                     ),
                     Text("Features :",
@@ -189,6 +194,7 @@ class _MyCustomDrawerState extends State<MyCustomDrawer> {
                                 color: Colors.white, fontSize: 16),
                           ),
                         ),
+                        Spacer()
                       ],
                     )
                   ],

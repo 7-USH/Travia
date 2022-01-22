@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print, prefer_const_constructors_in_immutables, await_only_futures, unnecessary_null_comparison
 
 import 'package:final_project/Screens/default_page.dart';
 import 'package:final_project/Screens/destination_screen.dart';
@@ -48,9 +48,13 @@ class _MyTextFieldState extends State<MyTextField> {
             ]),
         width: size.width / 1.16,
         height: size.height / 16,
-        child: TextField(
-          onChanged: (String value) {
-            search = value;
+        child: TextFormField(
+          onChanged: (value) async {
+            if (value == "") {
+              search = "Tushar";
+            } else {
+              search = await value;
+            }
           },
           controller: textController,
           cursorColor: Colors.grey.shade700,
@@ -72,8 +76,9 @@ class _MyTextFieldState extends State<MyTextField> {
             onPressed: () async {
               var data = await FirestorInfo.dataStream(search);
               textController.clear();
+              search = "";
               if (data != null) {
-                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                await Navigator.push(context, MaterialPageRoute(builder: (_) {
                   return DestinationPage(
                     subtitle: data['subTitle'].toString(),
                     latitude: data['latitude'],

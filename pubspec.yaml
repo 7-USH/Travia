@@ -53,6 +53,7 @@ dependencies:
   flutter_secure_storage: ^5.0.2
   scrollable_positioned_list: ^0.2.3
   url_launcher: ^6.0.18
+  connectivity_plus: ^2.2.0
 
 
 dev_dependencies:

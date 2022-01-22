@@ -51,7 +51,8 @@ class MyApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         darkTheme: MyThemes.darkTheme,
         home: FutureBuilder(
-          future:checkloginstat(), builder: (BuildContext context, AsyncSnapshot<bool> snapshot) { 
+          future:checkloginstat(), 
+          builder: (BuildContext context, AsyncSnapshot<bool> snapshot) { 
             if(snapshot.data==false)
             {
               return FlashScreen(
