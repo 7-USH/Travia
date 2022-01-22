@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, avoid_print, prefer_const_constructors_in_immutables, await_only_futures, unnecessary_null_comparison
+// ignore_for_file: prefer_const_constructors, avoid_print, prefer_const_constructors_in_immutables, await_only_futures, unnecessary_null_comparison, prefer_collection_literals
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:final_project/Screens/default_page.dart';
 import 'package:final_project/Screens/destination_screen.dart';
 import 'package:final_project/Screens/main_screen.dart';
@@ -7,6 +8,7 @@ import 'package:final_project/Screens/searchfield.dart';
 import 'package:final_project/accessories/circular_background.dart';
 import 'package:final_project/constants.dart';
 import 'package:final_project/networking/firestore_getinfo.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -18,16 +20,50 @@ class MyTextField extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<MyTextField> {
+  List places = [];
+  var firestore = FirebaseFirestore.instance;
+
   String getPlace(String value) {
     setState(() {});
     return value;
+  }
+
+  void getAllPlaces() async {
+    final CollectionReference collectionReference =
+        await firestore.collection('Destination');
+    await collectionReference.get().then((querySnapshot) {
+      for (var element in querySnapshot.docs) {
+        places.add(element.data());
+      }
+    });
+    setState(() {});
+    print(places);
+  }
+
+  search(String search) async {
+    String firstLetter = search.substring(0, 1).toUpperCase();
+    String afteLetter = search.substring(1).toLowerCase();
+    String searchValue = firstLetter + afteLetter;
+
+    for (var data in places) {
+      if (data['title'] == searchValue) {
+        return data;
+      }
+    }
+    return null;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getAllPlaces();
   }
 
   final textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    String search = "";
+    String searchKey = "";
 
     return Stack(children: [
       Container(
@@ -51,9 +87,9 @@ class _MyTextFieldState extends State<MyTextField> {
         child: TextFormField(
           onChanged: (value) async {
             if (value == "") {
-              search = "Tushar";
+              searchKey = "Tushar";
             } else {
-              search = await value;
+              searchKey = await value;
             }
           },
           controller: textController,
@@ -73,10 +109,10 @@ class _MyTextFieldState extends State<MyTextField> {
       Positioned(
           left: size.width / 1.36,
           child: CircleBackground(
-            onPressed: () async {
-              var data = await FirestorInfo.dataStream(search);
+            onPressed: () async {  
+              var data = await search(searchKey);
               textController.clear();
-              search = "";
+              searchKey = "";
               if (data != null) {
                 await Navigator.push(context, MaterialPageRoute(builder: (_) {
                   return DestinationPage(
