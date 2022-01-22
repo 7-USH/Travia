@@ -41,6 +41,7 @@ class _MyTextFieldState extends State<MyTextField> {
   }
 
   search(String search) async {
+    print("Value" + search);
     String firstLetter = search.substring(0, 1).toUpperCase();
     String afteLetter = search.substring(1).toLowerCase();
     String searchValue = firstLetter + afteLetter;
@@ -85,11 +86,11 @@ class _MyTextFieldState extends State<MyTextField> {
         width: size.width / 1.16,
         height: size.height / 16,
         child: TextFormField(
-          onChanged: (value) async {
+          onChanged: (value) {
             if (value == "") {
               searchKey = "Tushar";
             } else {
-              searchKey = await value;
+              searchKey = value;
             }
           },
           controller: textController,
@@ -109,8 +110,8 @@ class _MyTextFieldState extends State<MyTextField> {
       Positioned(
           left: size.width / 1.36,
           child: CircleBackground(
-            onPressed: () async {  
-              var data = await search(searchKey);
+            onPressed: () async {
+              var data = await search(textController.text);
               textController.clear();
               searchKey = "";
               if (data != null) {
